@@ -1,8 +1,8 @@
-import React, { useState } from 'react';
-import { Card, CardHeader, CardTitle, CardContent } from '@/components/ui/card';
-import { Ruler, ScrollText, Wrench, Brain, Lightbulb, Bot, Sunset, ChevronDown } from 'lucide-react';
+import { useState } from 'react';
+import { Card, CardContent } from '@/components/ui/card';
+import { Ruler, ScrollText, Wrench, Brain, Bot, ChevronDown } from 'lucide-react';
 
-const ResearchSection = ({ title, icon: Icon, gradient, hoverGradient, papers, textColor, isOpen, onToggle }) => (
+const ResearchSection = ({ title, icon: Icon, gradient, hoverGradient, papers, textColor, isOpen, onToggle }: any) => (
   <div className="transform transition-transform">
     <Card className="bg-white/80 backdrop-blur border-none shadow-lg hover:shadow-xl transition-shadow rounded-xl overflow-hidden">
       <div className={`h-1 ${gradient}`}></div>
@@ -23,7 +23,7 @@ const ResearchSection = ({ title, icon: Icon, gradient, hoverGradient, papers, t
       <div className={`transition-all duration-300 ease-in-out ${isOpen ? 'max-h-screen opacity-100' : 'max-h-0 opacity-0 overflow-hidden'}`}>
         <CardContent>
           <ul className="space-y-4">
-            {papers.map((paper, i) => (
+            {papers.map((paper: any, i: any) => (
               <li key={i}>
                 <a 
                   href={paper.link}
@@ -59,7 +59,7 @@ const ResearchSection = ({ title, icon: Icon, gradient, hoverGradient, papers, t
 );
 
 const PersonalWebsite = () => {
-  const [openSection, setOpenSection] = useState(null);
+  const [openSection, setOpenSection] = useState<string | null>(null);
 
   const researchSections = [
     {
