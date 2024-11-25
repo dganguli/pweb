@@ -76,6 +76,16 @@ const PersonalWebsite = () => {
           link: "https://dl.acm.org/doi/10.1145/3630106.3658979"
         },
         {
+          title: "The Capacity for Moral Self-Correction in Large Language Models",
+          details: "Arxiv, Feb 2023",
+          link: "https://arxiv.org/abs/2302.07459"
+        },
+        {
+          title: "Red Teaming Language Models to Reduce Harms",
+          details: "arXiv, Aug 2022",
+          link: "https://arxiv.org/abs/2209.07858"
+        },
+        {
           title: "Constitutional AI: Harmlessness from AI Feedback",
           details: "arXiv, Dec 2022",
           link: "https://arxiv.org/abs/2212.08073"
@@ -84,11 +94,6 @@ const PersonalWebsite = () => {
           title: "Training a Helpful and Harmless Assistant with Reinforcement Learning from Human Feedback",
           details: "arXiv, Apr 2022",
           link: "https://arxiv.org/abs/2204.05862"
-        },
-        {
-          title: "Red Teaming Language Models to Reduce Harms",
-          details: "arXiv, Aug 2022",
-          link: "https://arxiv.org/abs/2209.07858"
         },
         {
           title: "Many-shot Jailbreaking",
@@ -122,7 +127,7 @@ const PersonalWebsite = () => {
         },
         {
           title: "Evaluating and mitigating discrimination in language model decisions",
-          details: "Neurips Algorithmic Fairness Workshop, Dec 2024",
+          details: "NeurIPS Algorithmic Fairness Workshop, Dec 2024",
           link: "https://arxiv.org/abs/2312.03689"
         },
         {
@@ -146,25 +151,40 @@ const PersonalWebsite = () => {
       textColor: "text-yellow-600",
       papers: [
         {
-          title: "The AI Index 2021 Annual Report",
-          details: "arXiv, 2021 | Citations: 687",
-          link: "https://atamkin.com"
+          title: "Challenges in evaluating AI systems",
+          details: "Anthropic Research Blog, Oct 2023",
+          link: "https://www.anthropic.com/research/evaluating-ai-systems"
         },
         {
+          title: "Opportunities and risks of LLMs for scalable deliberation with Polis",
+          details: "arXiv, Jun 2023",
+          link: "https://arxiv.org/abs/2306.11932"
+        },
+        {
+          title: "Testing and mitigating elections-related risks",
+          details: "Anthropic Research Blog, Jun 2024",
+          link: "https://www.anthropic.com/news/testing-and-mitigating-elections-related-risks"
+        },  
+        {
           title: "Predictability and Surprise in Large Generative Models",
-          details: "FAccT, 2022 | Citations: 275",
-          link: "https://atamkin.com"
+          details: "FAccT, Jun 2022",
+          link: "https://dl.acm.org/doi/10.1145/3531146.3533229"
         },
         {
           title: "Understanding the Capabilities, Limitations, and Societal Impact of Large Language Models",
-          details: "arXiv, 2021 | Citations: 324",
-          link: "https://atamkin.com"
-        }
+          details: "arXiv, Feb 2021",
+          link: "https://arxiv.org/abs/2102.02503"
+        },
+        {
+          title: "The AI Index 2021 Annual Report",
+          details: "arXiv, Mar 2021",
+          link: "https://arxiv.org/abs/2103.06312"
+        },
       ]
     },
     {
       id: 'neuroscience',
-      title: "neuroscience",
+      title: "computational neuroscience",
       icon: Brain,
       gradient: "bg-gradient-to-r from-pink-400 to-purple-400",
       hoverGradient: "hover:bg-gradient-to-r hover:from-pink-50 hover:to-purple-50",
@@ -172,18 +192,18 @@ const PersonalWebsite = () => {
       papers: [
         {
           title: "Neural and perceptual signatures of efficient sensory coding",
-          details: "arXiv:1603.00058, 2016 | Citations: 28",
-          link: "https://atamkin.com"
+          details: "arXiv, Feb 2016",
+          link: "https://arxiv.org/abs/1603.00058"
         },
         {
           title: "Efficient Sensory Encoding and Bayesian Inference with Heterogeneous Neural Populations",
-          details: "Neural Computation, 2014 | Citations: 253",
-          link: "https://atamkin.com"
+          details: "Neural Computation, Oct 2014",
+          link: "https://direct.mit.edu/neco/article-abstract/26/10/2103/8022/Efficient-Sensory-Encoding-and-Bayesian-Inference?redirectedFrom=PDF"
         },
         {
           title: "Implicit Encoding of Prior Probabilities in Optimal Neural Populations",
-          details: "NeurIPS, 2010 | Citations: 113",
-          link: "https://atamkin.com"
+          details: "NeurIPS, Dec 2010",
+          link: "https://proceedings.neurips.cc/paper_files/paper/2010/hash/f9a40a4780f5e1306c46f1c8daecee3b-Abstract.html"
         }
       ]
     },
@@ -196,9 +216,14 @@ const PersonalWebsite = () => {
       textColor: "text-purple-500",
       papers: [
         {
+          title: "Starfish: Open source image based transcriptomics and proteomics tools",
+          details: "JOSS, Jun 2020",
+          link: "https://joss.theoj.org/papers/10.21105/joss.02440"
+        },
+        {
           title: "Druid: A Real-time Analytical Data Store",
-          details: "ACM SIGMOD, 2014 | Citations: 242",
-          link: "https://atamkin.com"
+          details: "ACM SIGMOD, Jun 2014",
+          link: "https://dl.acm.org/doi/10.1145/2588555.2595631"
         }
       ]
     }
@@ -258,7 +283,7 @@ const PersonalWebsite = () => {
                 research scientist at anthropic
               </p>
               <p className="text-xl mb-4 text-white/90">
-                studying the societal impacts of ai
+                making ai work for everyone
               </p>
             </div>
           </div>
@@ -278,7 +303,7 @@ const PersonalWebsite = () => {
             </h2>
           </div>
           <p className="text-gray-600 text-lg leading-relaxed">
-            i'm a research scientist at anthropic, where i started and lead the societal impacts team. prior to that, i was the research director at the stanford institute for human centered ai. i did my phd in neuroscience at nyu and obtained my bs in electrical engineering and computer science from berkeley. for fun, i surf, play bass with my band, and read as much a possible.
+            i'm a research scientist at anthropic, where i started and lead the societal impacts team. prior to that, i was the founding research director at the stanford institute for human centered ai. i did my phd in computational neuroscience at nyu and obtained my bs in electrical engineering and computer science from berkeley. for fun, i surf, play bass with my band, and read widely across the humanities and social sciences.
           </p>
         </div>
       </div>
