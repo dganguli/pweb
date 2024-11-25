@@ -1,3 +1,11 @@
-# A Personal Website
+# Deep Ganguli's Personal WEBsite (pweb)
 
-I made this using Claude 3.5 Sonnet in about 4 hours. I know almost nothing about web development. 
+## build locally
+
+`npm run dev`
+
+## deploy
+
+`npm run deploy`
+
+## how it was made
