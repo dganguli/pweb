@@ -303,7 +303,7 @@ const PersonalWebsite = () => {
             </h2>
           </div>
           <p className="text-gray-600 text-lg leading-relaxed">
-            i'm a research scientist at anthropic, where i started and lead the societal impacts team. prior to that, i was the founding research director at the stanford institute for human centered ai. i did my phd in computational neuroscience at nyu and obtained my bs in electrical engineering and computer science from berkeley. for fun, i surf, play bass with my band, and read widely across the humanities and social sciences.
+            I am a research scientist at Anthropic, where I started and lead the societal impacts team. Prior to that, I was the founding research director at the Stanford Institute for Human Centered AI (HAI). I did my PhD in Computational Neuroscience at NYU and obtained my BS in Electrical Engineering and Computer Science (EECS) from Berkeley. For fun, I surf, play bass with my band, and read widely across the humanities and social sciences.
           </p>
         </div>
       </div>
@@ -314,7 +314,7 @@ const PersonalWebsite = () => {
           <h2 className="text-4xl font-black bg-gradient-to-r from-pink-500 to-orange-500 text-transparent bg-clip-text">
             research highlights
           </h2>
-          <p className="text-gray-600 mt-2">click to explore work i led or contributed significantly to</p>
+          <p className="text-gray-600 mt-2">click to explore work I led or contributed significantly to</p>
         </div>
 
         {/* Research Categories */}
