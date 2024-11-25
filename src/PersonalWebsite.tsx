@@ -71,29 +71,29 @@ const PersonalWebsite = () => {
       textColor: "text-pink-500",
       papers: [
         {
-          title: "Training a Helpful and Harmless Assistant with Reinforcement Learning from Human Feedback",
-          details: "arXiv, 2022",
-          link: "https://arxiv.org/abs/2204.05862"
+          title: "Collective Constitutional AI: Aligning a Language Model with Public Input",
+          details: "FAccT, Jun 2024",
+          link: "https://dl.acm.org/doi/10.1145/3630106.3658979"
         },
         {
           title: "Constitutional AI: Harmlessness from AI Feedback",
-          details: "arXiv, 2022 | Citations: 1109",
-          link: "https://atamkin.com"
+          details: "arXiv, Dec 2022",
+          link: "https://arxiv.org/abs/2212.08073"
+        },
+        {
+          title: "Training a Helpful and Harmless Assistant with Reinforcement Learning from Human Feedback",
+          details: "arXiv, Apr 2022",
+          link: "https://arxiv.org/abs/2204.05862"
         },
         {
           title: "Red Teaming Language Models to Reduce Harms",
-          details: "arXiv, 2022 | Citations: 400",
-          link: "https://atamkin.com"
+          details: "arXiv, Aug 2022",
+          link: "https://arxiv.org/abs/2209.07858"
         },
         {
           title: "Many-shot Jailbreaking",
-          details: "NeurIPS, 2024 | Citations: 60",
-          link: "https://atamkin.com"
-        },
-        {
-          title: "Sleeper Agents: Training Deceptive LLMs that Persist Through Safety Training",
-          details: "arXiv, 2024 | Citations: 50",
-          link: "https://atamkin.com"
+          details: "NeurIPS, Dec 2024",
+          link: "https://openreview.net/forum?id=cw5mgd71jW"
         }
       ]
     },
@@ -106,24 +106,34 @@ const PersonalWebsite = () => {
       textColor: "text-orange-500",
       papers: [
         {
-          title: "Beyond the Imitation Game: Quantifying and Extrapolating the Capabilities of Language Models",
-          details: "arXiv, 2022 | Citations: 1140",
-          link: "https://atamkin.com"
+          title: "Evaluating feature steering: A case study in mitigating social biases",
+          details: "Anthropic Research Blog, Oct 2024",
+          link: "https://www.anthropic.com/research/evaluating-feature-steering"
+        },
+        {
+          title: "Towards measuring the representation of subjective global opinions in language models",
+          details: "COLM, Oct 2024",
+          link: "https://openreview.net/forum?id=zl16jLb91v#discussion"
+        },
+        {
+          title: "Measuring the Persuasiveness of Language Models",
+          details: "Anthropic Research Blog, Apr 2024",
+          link: "https://www.anthropic.com/research/measuring-model-persuasiveness"
+        },
+        {
+          title: "Evaluating and mitigating discrimination in language model decisions",
+          details: "Neurips Algorithmic Fairness Workshop, Dec 2024",
+          link: "https://arxiv.org/abs/2312.03689"
         },
         {
           title: "Discovering Language Model Behaviors with Model-Written Evaluations",
-          details: "arXiv, 2022 | Citations: 214",
-          link: "https://atamkin.com"
+          details: "ACL, July 2023",
+          link: "https://aclanthology.org/2023.findings-acl.847/"
         },
         {
-          title: "Language Models (Mostly) Know What They Know",
-          details: "arXiv, 2022 | Citations: 140",
-          link: "https://atamkin.com"
-        },
-        {
-          title: "In-context Learning and Induction Heads",
-          details: "arXiv, 2022 | Citations: 323",
-          link: "https://atamkin.com"
+          title: "Beyond the Imitation Game: Quantifying and Extrapolating the Capabilities of Language Models",
+          details: "TMLR, May 2022",
+          link: "https://arxiv.org/abs/2206.04615"
         }
       ]
     },
@@ -279,7 +289,7 @@ const PersonalWebsite = () => {
           <h2 className="text-4xl font-black bg-gradient-to-r from-pink-500 to-orange-500 text-transparent bg-clip-text">
             research highlights
           </h2>
-          <p className="text-gray-600 mt-2">click each section to explore papers</p>
+          <p className="text-gray-600 mt-2">click to explore work i led or contributed signifficantly to</p>
         </div>
 
         {/* Research Categories */}
