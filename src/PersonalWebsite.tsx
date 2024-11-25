@@ -314,7 +314,7 @@ const PersonalWebsite = () => {
           <h2 className="text-4xl font-black bg-gradient-to-r from-pink-500 to-orange-500 text-transparent bg-clip-text">
             research highlights
           </h2>
-          <p className="text-gray-600 mt-2">click to explore work i led or contributed signifficantly to</p>
+          <p className="text-gray-600 mt-2">click to explore work i led or contributed significantly to</p>
         </div>
 
         {/* Research Categories */}
