@@ -2,6 +2,29 @@ import { useState } from 'react';
 import { Card, CardContent } from '@/components/ui/card';
 import { Ruler, ScrollText, Wrench, Brain, Bot, ChevronDown } from 'lucide-react';
 
+const RoleBadge = ({ role }) => {
+  if (!role) return null;
+
+  const getBadgeColors = () => {
+    switch (role.toLowerCase()) {
+      case 'first author':
+        return 'bg-pink-50/30 text-pink-500/60 border-pink-100/30';
+      case 'last author':
+        return 'bg-orange-50/30 text-orange-500/60 border-orange-100/30';
+      case 'middle author - evals':
+        return 'bg-yellow-50/30 text-yellow-600/60 border-yellow-100/30';
+      default:
+        return 'bg-gray-50/30 text-gray-400/60 border-gray-100/30';
+    }
+  };
+
+  return (
+    <span className={`text-xs px-2 py-1 rounded-full border ${getBadgeColors()}`}>
+      {role}
+    </span>
+  );
+};
+
 const ResearchSection = ({ title, icon: Icon, gradient, hoverGradient, papers, textColor, isOpen, onToggle }: any) => (
   <div className="transform transition-transform">
     <Card className="bg-white/80 backdrop-blur border-none shadow-lg hover:shadow-xl transition-shadow rounded-xl overflow-hidden">
@@ -34,6 +57,7 @@ const ResearchSection = ({ title, icon: Icon, gradient, hoverGradient, papers, t
                   <h4 className="font-semibold text-gray-900 group-hover:text-gray-700">{paper.title}</h4>
                   <p className="text-gray-600 text-sm flex items-center gap-2">
                     {paper.details}
+                  <RoleBadge role={paper.role} />
                     <svg 
                       className="w-4 h-4 opacity-50 group-hover:opacity-100 transition-opacity" 
                       fill="none" 
@@ -77,7 +101,7 @@ const PersonalWebsite = () => {
         },
         {
           title: "The Capacity for Moral Self-Correction in Large Language Models",
-          details: "Arxiv, Feb 2023",
+          details: "arXiv, Feb 2023",
           link: "https://arxiv.org/abs/2302.07459"
         },
         {
