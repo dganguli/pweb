@@ -336,9 +336,8 @@ const PersonalWebsite = () => {
       <div className="max-w-4xl mx-auto px-4 py-12">
         <div className="text-center py-8">
           <h2 className="text-4xl font-black bg-gradient-to-r from-pink-500 to-orange-500 text-transparent bg-clip-text">
-            research highlights
+            research
           </h2>
-          <p className="text-gray-600 mt-2">click to explore work I led or contributed significantly to</p>
         </div>
 
         {/* Research Categories */}
