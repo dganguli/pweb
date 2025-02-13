@@ -135,12 +135,17 @@ const PersonalWebsite = () => {
       textColor: "text-orange-500",
       papers: [
         {
-          title: "Evaluating feature steering: A case study in mitigating social biases",
+          title: "Which Economic Tasks are Performed with AI? Evidence from Millions of Claude Conversations",
+          details: "arXiv, Feb 2025",
+          link: "https://assets.anthropic.com/m/2e23255f1e84ca97/original/Economic_Tasks_AI_Paper.pdf",
+        },
+        {
+          title: "Evaluating Feature Steering: A Case Study in Mitigating Social Biases",
           details: "Anthropic Research Blog, Oct 2024",
           link: "https://www.anthropic.com/research/evaluating-feature-steering"
         },
         {
-          title: "Towards measuring the representation of subjective global opinions in language models",
+          title: "Towards Measuring the Representation of Subjective Global Opinions in Language Models",
           details: "COLM, Oct 2024",
           link: "https://openreview.net/forum?id=zl16jLb91v#discussion"
         },
@@ -150,7 +155,7 @@ const PersonalWebsite = () => {
           link: "https://www.anthropic.com/research/measuring-model-persuasiveness"
         },
         {
-          title: "Evaluating and mitigating discrimination in language model decisions",
+          title: "Evaluating and Mitigating Discrimination in Language Model Decisions",
           details: "NeurIPS Algorithmic Fairness Workshop, Dec 2024",
           link: "https://arxiv.org/abs/2312.03689"
         },
@@ -175,17 +180,22 @@ const PersonalWebsite = () => {
       textColor: "text-yellow-600",
       papers: [
         {
-          title: "Challenges in evaluating AI systems",
+          title: "Anthropic Economic Index: Understanding AI’s Effects on the Economy Over Time",
+          details: "Anthropic Economic Index, Feb 2025",
+          link: "https://www.anthropic.com/economic-index"
+        },
+        {
+          title: "Challenges in Evaluating AI Systems",
           details: "Anthropic Research Blog, Oct 2023",
           link: "https://www.anthropic.com/research/evaluating-ai-systems"
         },
         {
-          title: "Opportunities and risks of LLMs for scalable deliberation with Polis",
+          title: "Opportunities and Risks of LLMs for Scalable Deliberation with Polis",
           details: "arXiv, Jun 2023",
           link: "https://arxiv.org/abs/2306.11932"
         },
         {
-          title: "Testing and mitigating elections-related risks",
+          title: "Testing and Mitigating Elections-related Risks from AI",
           details: "Anthropic Research Blog, Jun 2024",
           link: "https://www.anthropic.com/news/testing-and-mitigating-elections-related-risks"
         },  
@@ -215,7 +225,7 @@ const PersonalWebsite = () => {
       textColor: "text-pink-500",
       papers: [
         {
-          title: "Neural and perceptual signatures of efficient sensory coding",
+          title: "Neural and Perceptual Signatures of Efficient Sensory Coding",
           details: "arXiv, Feb 2016",
           link: "https://arxiv.org/abs/1603.00058"
         },
@@ -240,7 +250,12 @@ const PersonalWebsite = () => {
       textColor: "text-purple-500",
       papers: [
         {
-          title: "Starfish: Open source image based transcriptomics and proteomics tools",
+          title: "Clio: Privacy-Preserving Insights into Real-World AI Use",
+          details: "Arxiv, Dec 2024",
+          link: "https://arxiv.org/abs/2412.13678"
+        },
+        {
+          title: "Starfish: Open Source Image Based Transcriptomics and Proteomics Tools",
           details: "JOSS, Jun 2020",
           link: "https://joss.theoj.org/papers/10.21105/joss.02440"
         },
