@@ -55,9 +55,12 @@ const ResearchSection = ({ title, icon: Icon, gradient, hoverGradient, papers, t
                   className={`block p-4 rounded-lg ${hoverGradient} transition-all duration-200 border border-orange-100 hover:shadow-md group`}
                 >
                   <h4 className="font-semibold text-gray-900 group-hover:text-gray-700">{paper.title}</h4>
+                  <div className="flex justify-between items-start">
                   <p className="text-gray-600 text-sm flex items-center gap-2">
-                    {paper.details}
-                  <RoleBadge role={paper.role} />
+                    <span className="px-2 py-1 bg-gray-100 rounded-full text-gray-700 font-medium">
+                      {paper.details.split(',')[0]} {/* This will show just the venue */}
+                    </span>
+                    <RoleBadge role={paper.role} />
                     <svg 
                       className="w-4 h-4 opacity-50 group-hover:opacity-100 transition-opacity" 
                       fill="none" 
@@ -72,6 +75,10 @@ const ResearchSection = ({ title, icon: Icon, gradient, hoverGradient, papers, t
                       />
                     </svg>
                   </p>
+                  <span className="text-sm text-gray-500 whitespace-nowrap">
+                    {paper.details.split(',')[1]?.trim()} {/* This will show just the date */}
+                  </span>
+                </div>
                 </a>
               </li>
             ))}
@@ -85,6 +92,18 @@ const ResearchSection = ({ title, icon: Icon, gradient, hoverGradient, papers, t
 const PersonalWebsite = () => {
   const [openSection, setOpenSection] = useState<string | null>(null);
   const [openMediaSection, setOpenMediaSection] = useState(false);
+
+  const getIconForPaper = (paperTitle) => {
+    for (const section of researchSections) {
+      if (section.papers.some(paper => paper.title.toLowerCase().includes(paperTitle.toLowerCase()))) {
+        return {
+          icon: section.icon,
+          color: section.textColor
+        };
+      }
+    }
+    return null;
+  };
 
 
   const researchSections = [
@@ -519,8 +538,10 @@ const PersonalWebsite = () => {
                         <h4 className="font-semibold text-gray-900 group-hover:text-gray-700">{item.title}</h4>
                         <span className="text-sm text-gray-500 whitespace-nowrap">{item.date}</span>
                       </div>
-                      <p className="text-sm text-gray-600 mb-1 flex items-center gap-2">
-                        {item.outlet}
+                      <p className="text-sm mb-1 flex items-center gap-2">
+                        <span className="px-2 py-1 bg-gray-100 rounded-full text-gray-700 font-medium">
+                          {item.outlet}
+                        </span>
                         <svg
                           className="w-4 h-4 opacity-50 group-hover:opacity-100 transition-opacity"
                           fill="none"
@@ -535,10 +556,14 @@ const PersonalWebsite = () => {
                           />
                         </svg>
                       </p>
-                        {item.description && (
-                         <p className="text-sm text-gray-500 leading-relaxed">
-                            {item.description}
-                         </p>
+                      {item.description && (
+                        <p className="text-sm text-gray-500 leading-relaxed flex items-center gap-2">
+                          {(() => {
+                            const iconInfo = getIconForPaper(item.description);
+                            return iconInfo ? <iconInfo.icon className={`w-4 h-4 ${iconInfo.color}`} /> : null;
+                          })()}
+                          {item.description}
+                        </p>
                         )}
                     </a>
                   </li>
