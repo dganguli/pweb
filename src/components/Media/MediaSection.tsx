@@ -27,7 +27,7 @@ export const MediaSection = ({ isOpen, onToggle }: MediaSectionProps) => {
         </div>
       </button>
 
-      <div className={`transition-all duration-300 ease-in-out ${isOpen ? 'max-h-[2000px] opacity-100' : 'max-h-0 opacity-0 overflow-hidden'}`}>
+      <div className={`transition-all duration-300 ease-in-out ${isOpen ? 'max-h-[10000px] opacity-100' : 'max-h-0 opacity-0'}`}>
         <CardContent>
           <ul className="space-y-4">
             {mediaItems.map((item, i) => (
@@ -38,10 +38,10 @@ export const MediaSection = ({ isOpen, onToggle }: MediaSectionProps) => {
                   rel="noopener noreferrer"
                   className="block p-4 rounded-lg hover:bg-gradient-to-r hover:from-pink-50 hover:to-orange-50 transition-all duration-200 border border-pink-50 hover:shadow-md group whitespace-normal"
                 >
-                  <div className="flex justify-between items-start mb-1">
-                    <h4 className="font-semibold text-gray-900 group-hover:text-gray-700 break-words">{item.title}</h4>
-                    <span className="text-sm text-gray-500 whitespace-nowrap">{item.date}</span>
-                  </div>
+                <div className="flex flex-col sm:flex-row justify-between items-start gap-2 mb-1">
+                  <h4 className="font-semibold text-gray-900 group-hover:text-gray-700 break-words">{item.title}</h4>
+                  <span className="text-sm text-gray-500 shrink-0">{item.date}</span>
+                </div>
                   <p className="text-sm mb-1 flex items-center gap-2">
                     <span className="px-2 py-1 bg-gray-100 rounded-full text-gray-700 font-light">
                       {item.outlet}
