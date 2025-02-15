@@ -30,13 +30,6 @@ export const mediaItems: MediaItem[] = [
       description: "Collective Constitutional AI: Aligning a Language Model with Public Input"
     },
     {
-      title: "When Hackers Descended to Test A.I., They Found Flaws Aplenty",
-      outlet: "The New York Times",
-      date: "Aug 2023",
-      link: "https://www.nytimes.com/2023/08/16/technology/ai-defcon-hackers.html",
-      description: "Red Teaming Language Models to Reduce Harms"
-    },
-    {
       title: "Anthropic Leads Charge Against AI Bias and Discrimination With New Research",
       outlet: "VentureBeat",
       date: "Dec 2023",
@@ -44,11 +37,18 @@ export const mediaItems: MediaItem[] = [
       description: "Evaluating and Mitigating Discrimination in Language Model Decisions"
     },
     {
-      title: "What if We Could All Control A.I.?",
+      title: "What if We Could All Control AI?",
       outlet: "The New York Times",
       date: "Oct 2023",
       link: "https://www.nytimes.com/2023/10/17/technology/ai-chatbot-control.html",
       description: "Collective Constitutional AI: Aligning a Language Model with Public Input"
+    },
+    {
+      title: "When Hackers Descended to Test AI, They Found Flaws Aplenty",
+      outlet: "The New York Times",
+      date: "Aug 2023",
+      link: "https://www.nytimes.com/2023/08/16/technology/ai-defcon-hackers.html",
+      description: "Red Teaming Language Models to Reduce Harms"
     },
     {
       title: "Language Models Might be Able to Self-correct Biases—If You Ask Them",
