@@ -36,10 +36,10 @@ export const MediaSection = ({ isOpen, onToggle }: MediaSectionProps) => {
                   href={item.link}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="block p-4 rounded-lg hover:bg-gradient-to-r hover:from-pink-50 hover:to-orange-50 transition-all duration-200 border border-pink-50 hover:shadow-md group"
+                  className="block p-4 rounded-lg hover:bg-gradient-to-r hover:from-pink-50 hover:to-orange-50 transition-all duration-200 border border-pink-50 hover:shadow-md group whitespace-normal"
                 >
                   <div className="flex justify-between items-start mb-1">
-                    <h4 className="font-semibold text-gray-900 group-hover:text-gray-700">{item.title}</h4>
+                    <h4 className="font-semibold text-gray-900 group-hover:text-gray-700 break-words">{item.title}</h4>
                     <span className="text-sm text-gray-500 whitespace-nowrap">{item.date}</span>
                   </div>
                   <p className="text-sm mb-1 flex items-center gap-2">
