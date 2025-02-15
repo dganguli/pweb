@@ -3,7 +3,7 @@ import { SocialLinks } from '../SocialLinks';
 export const ProfileSection = () => (
   <div className="flex flex-col items-center gap-8">
     <div className="relative w-48">
-      <div className="absolute inset-0 bg-yellow-400 rounded-full scale-110 opacity-75 blur-sm"></div>
+      <div className="absolute inset-0 bg-violet-500 rounded-full scale-105 opacity-75 blur-sm"></div>
       <img 
         src="dg2.png"
         alt="Deep Ganguli"

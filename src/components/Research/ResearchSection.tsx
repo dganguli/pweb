@@ -42,14 +42,14 @@ export const ResearchSection = ({
                   className={`block p-4 rounded-lg ${hoverGradient} transition-all duration-200 border border-orange-100 hover:shadow-md group whitespace-normal`}
                 >
                   <h4 className="font-semibold text-gray-900 group-hover:text-gray-700 break-words">{paper.title}</h4>
-                  <div className="flex justify-between items-start">
-                    <p className="text-gray-600 text-sm flex items-center gap-2">
-                      <span className="px-2 py-1 bg-gray-100 rounded-full text-gray-500 font-light">
+                 <div className="flex flex-col sm:flex-row justify-between items-start gap-2">
+                    <p className="text-gray-600 text-sm flex items-center gap-2 flex-wrap">
+                      <span className="px-2 py-1 bg-gray-100 rounded-full text-gray-500 font-light break-words">
                         {paper.details.split(',')[0]}
                       </span>
                       <RoleBadge role={paper.role} />
                     </p>
-                    <span className="text-sm text-gray-500 whitespace-nowrap">
+                    <span className="text-sm text-gray-500">
                       {paper.details.split(',')[1]?.trim()}
                     </span>
                   </div>
