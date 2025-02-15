@@ -206,20 +206,3 @@ export const researchSections: ResearchSection[] = [
       ]
     }
 ];
-
-// Constants for gradients that can be reused
-export const GRADIENTS = {
-  PINK_ORANGE: "bg-gradient-to-r from-pink-500 to-orange-400",
-  ORANGE_YELLOW: "bg-gradient-to-r from-orange-400 to-yellow-400",
-  YELLOW_PINK: "bg-gradient-to-r from-yellow-400 to-pink-400",
-  PINK_PURPLE: "bg-gradient-to-r from-pink-400 to-purple-400",
-  PURPLE_ORANGE: "bg-gradient-to-r from-purple-400 to-orange-400"
-} as const;
-
-export const HOVER_GRADIENTS = {
-  PINK_ORANGE: "hover:bg-gradient-to-r hover:from-pink-50 hover:to-orange-50",
-  ORANGE_YELLOW: "hover:bg-gradient-to-r hover:from-orange-50 hover:to-yellow-50",
-  YELLOW_PINK: "hover:bg-gradient-to-r hover:from-yellow-50 hover:to-pink-50",
-  PINK_PURPLE: "hover:bg-gradient-to-r hover:from-pink-50 hover:to-purple-50",
-  PURPLE_ORANGE: "hover:bg-gradient-to-r hover:from-purple-50 hover:to-orange-50"
-} as const;
