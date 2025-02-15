@@ -5,7 +5,7 @@ export const ProfileSection = () => (
     <div className="relative w-48">
       <div className="absolute inset-0 bg-yellow-400 rounded-full scale-110 opacity-75 blur-sm"></div>
       <img 
-        src="dg.png"
+        src="dg2.png"
         alt="Deep Ganguli"
         className="rounded-full shadow-lg w-48 h-48 object-cover relative z-10 transition-all duration-300"
       />

@@ -43,7 +43,7 @@ export const MediaSection = ({ isOpen, onToggle }: MediaSectionProps) => {
                     <span className="text-sm text-gray-500 whitespace-nowrap">{item.date}</span>
                   </div>
                   <p className="text-sm mb-1 flex items-center gap-2">
-                    <span className="px-2 py-1 bg-gray-100 rounded-full text-gray-700 font-medium">
+                    <span className="px-2 py-1 bg-gray-100 rounded-full text-gray-700 font-light">
                       {item.outlet}
                     </span>
                   </p>

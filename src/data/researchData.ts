@@ -1,4 +1,3 @@
-// src/data/researchData.ts
 import { ResearchSection } from '../types';
 import { Bot, Ruler, ScrollText, Brain, Wrench } from 'lucide-react';
 
