@@ -48,12 +48,12 @@ export const MediaSection = ({ isOpen, onToggle }: MediaSectionProps) => {
                     </span>
                   </p>
                   {item.description && (
-                    <p className="text-sm text-gray-500 leading-relaxed flex items-center gap-2">
+                    <p className="text-sm text-gray-500 leading-relaxed flex items-start gap-2">
                       {(() => {
                         const iconInfo = item.description ? getIconForPaper(item.description) : null;
-                        return iconInfo ? <iconInfo.icon className={`w-4 h-4 ${iconInfo.color}`} /> : null;
+                        return iconInfo ? <iconInfo.icon className={`w-4 h-4 ${iconInfo.color} flex-shrink-0 mt-1`} /> : null;
                       })()}
-                      {item.description}
+                      <span className="flex-1">{item.description}</span>
                     </p>
                   )}
                 </a>
