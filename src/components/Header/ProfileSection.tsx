@@ -12,7 +12,7 @@ export const ProfileSection = () => (
     </div>
     
     <div className="text-center z-10">
-      <h1 className="text-6xl font-black mb-4 text-white drop-shadow-lg">
+      <h1 className="text-5xl font-black mb-4 text-white drop-shadow-lg">
         deep ganguli
       </h1>
       <p className="text-2xl mb-2 font-light text-yellow-100">
