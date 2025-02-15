@@ -65,13 +65,6 @@ export const mediaItems: MediaItem[] = [
       description: "Predictability and Surprise in Large Generative Models"
     },
     {
-      title: "Chatbots Got Big—and Their Ethical Red Flags Got Bigger",
-      outlet: "Wired",
-      date: "Feb 2023",
-      link: "https://www.wired.com/story/chatbots-got-big-and-their-ethical-red-flags-got-bigger/",
-      description: "Understanding the Capabilities, Limitations, and Societal Impact of Large Language Models"
-    },
-    {
       title: "OpenAI & Stanford Researchers Call for Urgent Action to Address Harms of LLMs Like GPT-3",
       outlet: "VentureBeat",
       date: "Feb 2021",
