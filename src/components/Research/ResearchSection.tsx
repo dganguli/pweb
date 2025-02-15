@@ -43,8 +43,8 @@ export const ResearchSection = ({
                 >
                   <h4 className="font-semibold text-gray-900 group-hover:text-gray-700 break-words">{paper.title}</h4>
                  <div className="flex flex-col sm:flex-row justify-between items-start gap-2">
-                    <p className="text-gray-600 text-sm flex items-center gap-2 flex-wrap">
-                      <span className="px-2 py-1 bg-gray-100 rounded-full text-gray-500 font-light break-words">
+                    <p className="text-gray-600 text-xs flex items-center gap-2 flex-wrap">
+                      <span className="px-2 py-1 bg-gray-100 rounded-full border text-gray-500 font-light break-words">
                         {paper.details.split(',')[0]}
                       </span>
                       <RoleBadge role={paper.role} />

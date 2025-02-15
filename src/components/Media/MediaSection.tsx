@@ -42,8 +42,8 @@ export const MediaSection = ({ isOpen, onToggle }: MediaSectionProps) => {
                   <h4 className="font-semibold text-gray-900 group-hover:text-gray-700 break-words">{item.title}</h4>
                   <span className="text-sm text-gray-500 shrink-0">{item.date}</span>
                 </div>
-                  <p className="text-sm mb-1 flex items-center gap-2">
-                    <span className="px-2 py-1 bg-gray-100 rounded-full text-gray-700 font-light">
+                  <p className="text-xs mb-1 flex items-center gap-2">
+                    <span className="px-2 py-1 bg-gray-100 border rounded-full text-gray-700 font-light">
                       {item.outlet}
                     </span>
                   </p>
