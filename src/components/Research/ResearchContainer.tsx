@@ -7,9 +7,9 @@ export const ResearchContainer = () => {
   const [openSection, setOpenSection] = useState<string | null>(null);
 
   return (
-    <div className="max-w-4xl mx-auto px-4 py-12">
+    <div className="w-full max-w-4xl mx-auto px-2 sm:px-4 py-12">
       <SectionTitle>research</SectionTitle>
-      <div className="space-y-4">
+      <div className="space-y-4 min-w-0">
         {researchSections.map((section) => (
           <ResearchSection
             key={section.id}

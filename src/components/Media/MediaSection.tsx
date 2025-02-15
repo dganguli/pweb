@@ -21,7 +21,7 @@ export const MediaSection = ({ isOpen, onToggle }: MediaSectionProps) => {
         <div className={`w-full px-6 py-4 transition-colors flex items-center justify-between ${isOpen ? 'bg-gray-50' : ''}`}>
           <div className="flex items-center gap-2 text-2xl">
             <Newspaper className="h-6 w-6 text-pink-500" />
-            <span className="text-pink-500">selected press coverage</span>
+            <span className="text-pink-500">selected press</span>
           </div>
           <ChevronDown className={`w-5 h-5 transition-transform text-pink-500 ${isOpen ? 'transform rotate-180' : ''}`} />
         </div>
