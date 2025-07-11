@@ -56,6 +56,12 @@ export const researchSections: ResearchSection[] = [
       textColor: "text-orange-500",
       papers: [
         {
+          title: "Values in the Wild: Discovering and Analyzing Values in Real-World Language Model Interactions",
+          details: "COLM, Oct 2025",
+          link: "https://arxiv.org/abs/2504.15236",
+          role: "last author"
+        },
+        {
           title: "Which Economic Tasks are Performed with AI? Evidence from Millions of Claude Conversations",
           details: "arXiv, Feb 2025",
           link: "https://assets.anthropic.com/m/2e23255f1e84ca97/original/Economic_Tasks_AI_Paper.pdf",
