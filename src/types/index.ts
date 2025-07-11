@@ -5,22 +5,32 @@ export interface Paper {
   role?: string;
 }
 
-export interface ResearchSection {
-  id: string;
-  title: string;
-  icon: React.ComponentType;
-  gradient: string;
-  hoverGradient: string;
-  textColor: string;
-  papers: Paper[];
-}
-
 export interface MediaItem {
   title: string;
   outlet: string;
   date: string;
   link: string;
   description?: string;
+}
+
+export interface PublicationWithMedia {
+  id: string;
+  title: string;
+  details: string;
+  link: string;
+  role?: string;
+  category: 'alignment' | 'evals' | 'policy' | 'neuroscience' | 'software';
+  mediaCoverage: Omit<MediaItem, 'description'>[];
+}
+
+export interface ResearchSection {
+  id: string;
+  title: string;
+  icon: React.ComponentType<{ className?: string }>;
+  gradient: string;
+  hoverGradient: string;
+  textColor: string;
+  papers: Paper[];
 }
 
 export interface RoleBadgeProps {
@@ -33,6 +43,6 @@ export interface ResearchSectionProps extends ResearchSection {
 }
 
 export interface IconInfo {
-  icon: React.ComponentType;
+  icon: React.ComponentType<{ className?: string }>;
   color: string;
 }

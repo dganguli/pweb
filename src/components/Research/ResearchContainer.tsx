@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { ResearchSection } from './ResearchSection';
-import { researchSections } from '../../data/researchData';
+import { researchSections } from '../../data/researchContent';
 import { SectionTitle } from '../common/SectionTitle';
 
 export const ResearchContainer = () => {

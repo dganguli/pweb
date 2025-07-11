@@ -1,5 +1,5 @@
 import { useMemo } from 'react';
-import { researchSections } from '../data/researchData';
+import { researchSections } from '../data/researchContent';
 import { IconInfo } from '../types';
 
 export const useIconForPaper = () => {

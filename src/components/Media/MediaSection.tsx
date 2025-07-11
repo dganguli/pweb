@@ -1,6 +1,6 @@
 import { Card, CardContent } from '@/components/ui/card';
 import { Newspaper, ChevronDown } from 'lucide-react';
-import { mediaItems } from '../../data/mediaData';
+import { getAllMediaItems } from '../../data/researchContent';
 import { useIconForPaper } from '../../hooks/useIconForPaper';
 
 interface MediaSectionProps {
@@ -10,6 +10,7 @@ interface MediaSectionProps {
 
 export const MediaSection = ({ isOpen, onToggle }: MediaSectionProps) => {
   const getIconForPaper = useIconForPaper();
+  const mediaItems = getAllMediaItems();
 
   return (
     <Card className="bg-white/80 backdrop-blur border-none shadow-lg hover:shadow-xl transition-shadow rounded-xl overflow-hidden">
