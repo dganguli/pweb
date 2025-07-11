@@ -4,7 +4,7 @@ export const mediaItems: MediaItem[] = [
     {
       title: "Anthropic just analyzed 700,000 Claude conversations and found its AI has a moral code of its own",
       outlet: "VentureBeat",
-      date: "Dec 2024",
+      date: "Apr 2025",
       link: "https://venturebeat.com/ai/anthropic-just-analyzed-700000-claude-conversations-and-found-its-ai-has-a-moral-code-of-its-own/",
       description: "Values in the Wild: Discovering and Analyzing Values in Real-World Language Model Interactions"
     },
