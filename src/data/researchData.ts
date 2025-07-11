@@ -56,6 +56,12 @@ export const researchSections: ResearchSection[] = [
       textColor: "text-orange-500",
       papers: [
         {
+          title: "How People Use Claude for Support, Advice, and Companionship",
+          details: "Anthropic Research Blog, Jun 2025",
+          link: "https://www.anthropic.com/news/how-people-use-claude-for-support-advice-and-companionship",
+          role: "last author"
+        },
+        {
           title: "Values in the Wild: Discovering and Analyzing Values in Real-World Language Model Interactions",
           details: "COLM, Oct 2025",
           link: "https://arxiv.org/abs/2504.15236",
