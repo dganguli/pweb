@@ -63,7 +63,7 @@ export const researchSections: ResearchSection[] = [
         },
         {
           title: "Values in the Wild: Discovering and Analyzing Values in Real-World Language Model Interactions",
-          details: "COLM, Oct 2025",
+          details: "COLM, Apr 2025",
           link: "https://arxiv.org/abs/2504.15236",
           role: "last author"
         },
