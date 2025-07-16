@@ -115,7 +115,7 @@ export const publicationsWithMedia: PublicationWithMedia[] = [
     id: 'economic-tasks-ai',
     title: "Which Economic Tasks are Performed with AI? Evidence from Millions of Claude Conversations",
     details: "arXiv, Feb 2025",
-    link: "https://assets.anthropic.com/m/2e23255f1e84ca97/original/Economic_Tasks_AI_Paper.pdf",
+    link: "https://arxiv.org/abs/2503.04761",
     role: "last author",
     category: 'evals',
     mediaCoverage: [
