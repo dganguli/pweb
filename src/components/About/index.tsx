@@ -46,12 +46,12 @@ export const About = () => {
             }}
             className="text-red-400 hover:text-red-500 transition-colors inline-flex items-center gap-1"
           >
+            recent work
             {isRecentWorkExpanded ? (
               <ChevronUp className="w-4 h-4" />
             ) : (
               <ChevronDown className="w-4 h-4" />
             )}
-            recent work
           </button>
           {' '}and some{' '}
           <button
@@ -63,14 +63,13 @@ export const About = () => {
             }}
             className="text-red-400 hover:text-red-500 transition-colors inline-flex items-center gap-1"
           >
+            favorites
             {isFavoriteWorkExpanded ? (
               <ChevronUp className="w-4 h-4" />
             ) : (
               <ChevronDown className="w-4 h-4" />
             )}
-            favorites
           </button>
-          .
         </p>
         
         {isRecentWorkExpanded && (
