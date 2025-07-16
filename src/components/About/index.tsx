@@ -70,6 +70,7 @@ export const About = () => {
               <ChevronDown className="w-4 h-4" />
             )}
           </button>
+          .
         </p>
         
         {isRecentWorkExpanded && (
