@@ -73,7 +73,7 @@ export const About = () => {
         </p>
         
         {isRecentWorkExpanded && (
-          <div className="mt-4 ml-2 sm:ml-4 border border-gray-200 rounded-lg bg-gray-50/50 p-4">
+          <div className="mt-4 ml-2 sm:ml-4 border border-pink-200 rounded-lg bg-gradient-to-r from-pink-50/30 to-orange-50/30 p-4">
             <h4 className="text-sm font-medium text-gray-500 mb-3">recent work</h4>
             <ul className="text-gray-600 text-sm leading-relaxed">
               {recentPublications.map((pub) => {
@@ -143,7 +143,7 @@ export const About = () => {
         )}
         
         {isFavoriteWorkExpanded && (
-          <div className="mt-4 ml-2 sm:ml-4 border border-gray-200 rounded-lg bg-gray-50/50 p-4">
+          <div className="mt-4 ml-2 sm:ml-4 border border-pink-200 rounded-lg bg-gradient-to-r from-pink-50/30 to-orange-50/30 p-4">
             <h4 className="text-sm font-medium text-gray-500 mb-3">favorites</h4>
             <ul className="text-gray-600 text-sm leading-relaxed">
               {favoritePublications.map((pub) => {
