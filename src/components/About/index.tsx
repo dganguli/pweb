@@ -1,5 +1,5 @@
 import { getRecentPublications, getPublicationById } from '../../data/researchContent';
-import { Bot, Ruler, ScrollText, Brain, Wrench, ChevronDown, ChevronUp } from 'lucide-react';
+import { Bot, Ruler, ScrollText, Brain, Wrench, ChevronDown, ChevronUp, Youtube } from 'lucide-react';
 import { useState } from 'react';
 
 export const About = () => {
@@ -23,8 +23,17 @@ export const About = () => {
           </h2>
         </div>
         <p className="text-gray-600 text-lg leading-relaxed">
-          I am a research scientist at Anthropic, where I started and lead the societal impacts team. 
-          Prior to that, I was the founding research director at the Stanford Institute for Human 
+          I am a research scientist at Anthropic, where I started and lead the{' '}
+          <a 
+            href="https://www.youtube.com/watch?v=02nFRuEo0bc" 
+            target="_blank" 
+            rel="noopener noreferrer"
+            className="text-red-400 hover:text-red-500 transition-colors inline-flex items-center gap-1"
+          >
+            societal impacts team
+            <Youtube className="w-4 h-4" />
+          </a>
+          . Prior to that, I was the founding research director at the Stanford Institute for Human 
           Centered AI (HAI). I did my PhD in Computational Neuroscience at NYU and obtained my BS 
           in Electrical Engineering and Computer Science (EECS) from Berkeley. For fun, I surf, play 
           bass with my band, and read widely across the humanities and social sciences. Here's some of my{' '}
