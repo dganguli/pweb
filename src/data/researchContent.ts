@@ -5,6 +5,31 @@ import { Bot, Ruler, ScrollText, Brain, Wrench } from 'lucide-react';
 export const publicationsWithMedia: PublicationWithMedia[] = [
   // AI Alignment
   {
+    id: 'claude-support-advice',
+    title: "How People Use Claude for Support, Advice, and Companionship",
+    details: "Anthropic Research Blog, Jun 2025",
+    link: "https://www.anthropic.com/news/how-people-use-claude-for-support-advice-and-companionship",
+    role: "last author",
+    category: 'alignment',
+    mediaCoverage: []
+  },
+  {
+    id: 'values-in-wild',
+    title: "Values in the Wild: Discovering and Analyzing Values in Real-World Language Model Interactions",
+    details: "COLM, Apr 2025",
+    link: "https://arxiv.org/abs/2504.15236",
+    role: "last author",
+    category: 'alignment',
+    mediaCoverage: [
+      {
+        title: "Anthropic just analyzed 700,000 Claude conversations and found its AI has a moral code of its own",
+        outlet: "VentureBeat",
+        date: "Apr 2025",
+        link: "https://venturebeat.com/ai/anthropic-just-analyzed-700000-claude-conversations-and-found-its-ai-has-a-moral-code-of-its-own/"
+      }
+    ]
+  },
+  {
     id: 'collective-constitutional-ai',
     title: "Collective Constitutional AI: Aligning a Language Model with Public Input",
     details: "FAccT, Jun 2024",
@@ -86,31 +111,6 @@ export const publicationsWithMedia: PublicationWithMedia[] = [
   },
 
   // AI Evaluation
-  {
-    id: 'claude-support-advice',
-    title: "How People Use Claude for Support, Advice, and Companionship",
-    details: "Anthropic Research Blog, Jun 2025",
-    link: "https://www.anthropic.com/news/how-people-use-claude-for-support-advice-and-companionship",
-    role: "last author",
-    category: 'evals',
-    mediaCoverage: []
-  },
-  {
-    id: 'values-in-wild',
-    title: "Values in the Wild: Discovering and Analyzing Values in Real-World Language Model Interactions",
-    details: "COLM, Apr 2025",
-    link: "https://arxiv.org/abs/2504.15236",
-    role: "last author",
-    category: 'evals',
-    mediaCoverage: [
-      {
-        title: "Anthropic just analyzed 700,000 Claude conversations and found its AI has a moral code of its own",
-        outlet: "VentureBeat",
-        date: "Apr 2025",
-        link: "https://venturebeat.com/ai/anthropic-just-analyzed-700000-claude-conversations-and-found-its-ai-has-a-moral-code-of-its-own/"
-      }
-    ]
-  },
   {
     id: 'economic-tasks-ai',
     title: "Which Economic Tasks are Performed with AI? Evidence from Millions of Claude Conversations",
@@ -458,4 +458,25 @@ export const getAllMediaItems = () => {
 export const getMediaForPublication = (publicationId: string) => {
   const pub = getPublicationById(publicationId);
   return pub?.mediaCoverage || [];
+};
+
+export const getRecentPublications = (count: number = 3): PublicationWithMedia[] => {
+  const sortedPublications = [...publicationsWithMedia].sort((a, b) => {
+    const parseDate = (dateStr: string) => {
+      const [venue, date] = dateStr.split(', ');
+      const [month, year] = date.split(' ');
+      const monthMap: { [key: string]: number } = {
+        'Jan': 0, 'Feb': 1, 'Mar': 2, 'Apr': 3, 'May': 4, 'Jun': 5,
+        'Jul': 6, 'Aug': 7, 'Sep': 8, 'Oct': 9, 'Nov': 10, 'Dec': 11
+      };
+      return new Date(parseInt(year), monthMap[month] || 0);
+    };
+    
+    const dateA = parseDate(a.details);
+    const dateB = parseDate(b.details);
+    
+    return dateB.getTime() - dateA.getTime();
+  });
+  
+  return sortedPublications.slice(0, count);
 };
