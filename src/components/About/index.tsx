@@ -1,5 +1,5 @@
 import { getRecentPublications, getPublicationById } from '../../data/researchContent';
-import { Bot, Ruler, ScrollText, Brain, Wrench, ChevronDown, ChevronUp, Youtube } from 'lucide-react';
+import { Bot, Ruler, ScrollText, Brain, Wrench, ChevronDown, ChevronUp, Youtube, Newspaper } from 'lucide-react';
 import { useState } from 'react';
 
 export const About = () => {
@@ -24,14 +24,24 @@ export const About = () => {
         </div>
         <p className="text-gray-600 text-lg leading-relaxed">
           I am a research scientist at Anthropic, where I started and lead the{' '}
-          <a 
-            href="https://www.youtube.com/watch?v=02nFRuEo0bc" 
-            target="_blank" 
+          <a
+            href="https://www.youtube.com/watch?v=02nFRuEo0bc"
+            target="_blank"
             rel="noopener noreferrer"
-            className="text-red-400 hover:text-red-500 transition-colors inline-flex items-center gap-1"
+            className="text-red-400 hover:text-red-500 transition-colors inline-flex items-center gap-0.5"
           >
-            societal impacts team
+            societal
             <Youtube className="w-4 h-4" />
+          </a>
+          {' '}
+          <a
+            href="https://www.theverge.com/ai-artificial-intelligence/836335/anthropic-societal-impacts-team-ai-claude-effects"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-red-400 hover:text-red-500 transition-colors inline-flex items-center gap-0.5"
+          >
+            impacts team
+            <Newspaper className="w-4 h-4" />
           </a>
           . Prior to that, I was the founding research director at the Stanford Institute for Human 
           Centered AI (HAI). I did my PhD in Computational Neuroscience at NYU and obtained my BS 

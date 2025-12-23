@@ -112,6 +112,50 @@ export const publicationsWithMedia: PublicationWithMedia[] = [
 
   // AI Evaluation
   {
+    id: 'anthropic-interviewer',
+    title: "Introducing Anthropic Interviewer: What 1,250 professionals told us about working with AI",
+    details: "Anthropic Research Blog, Dec 2025",
+    link: "https://www.anthropic.com/research/anthropic-interviewer",
+    role: "last author",
+    category: 'evals',
+    mediaCoverage: [
+      {
+        title: "I Used Anthropic's Interviewer Tool to Share My AI Complaints",
+        outlet: "ZDNet",
+        date: "Dec 2025",
+        link: "https://www.zdnet.com/article/i-used-anthropics-interviewer-tool-to-share-my-ai-complaints/"
+      },
+      {
+        title: "Anthropic Will Start Using AI to Interview Its Users About Their Experience with AI",
+        outlet: "The Verge",
+        date: "Dec 2025",
+        link: "https://www.theverge.com/ai-artificial-intelligence/838243/anthropic-will-start-using-ai-to-interview-its-users-about-their-experience-with-ai"
+      }
+    ]
+  },
+  {
+    id: 'ai-transforming-work-anthropic',
+    title: "How AI Is Transforming Work at Anthropic",
+    details: "Anthropic Research Blog, Dec 2025",
+    link: "https://www.anthropic.com/research/how-ai-is-transforming-work-at-anthropic",
+    role: "last author",
+    category: 'evals',
+    mediaCoverage: [
+      {
+        title: "Anthropic Turns Inward to Show How AI Affects Its Own Workforce",
+        outlet: "Inc",
+        date: "Dec 2025",
+        link: "https://www.inc.com/kit-eaton/anthropic-turns-inward-to-show-how-ai-affects-its-own-workforce/91273789"
+      },
+      {
+        title: "AI is making the workplace lonelier",
+        outlet: "Axios",
+        date: "Dec 2025",
+        link: "https://www.axios.com/2025/12/13/ai-anthropic-chatbot-remote-work-jobs"
+      }
+    ]
+  },
+  {
     id: 'economic-tasks-ai',
     title: "Which Economic Tasks are Performed with AI? Evidence from Millions of Claude Conversations",
     details: "arXiv, Feb 2025",
@@ -345,6 +389,17 @@ export const publicationsWithMedia: PublicationWithMedia[] = [
   }
 ];
 
+// Standalone media coverage (not tied to a specific publication)
+export const standaloneMedia: { title: string; outlet: string; date: string; link: string; description?: string }[] = [
+  {
+    title: "It's their job to keep AI from destroying everything",
+    outlet: "The Verge",
+    date: "Dec 2025",
+    link: "https://www.theverge.com/ai-artificial-intelligence/836335/anthropic-societal-impacts-team-ai-claude-effects",
+    description: "Societal Impacts Team"
+  }
+];
+
 // Research sections configuration (unchanged structure for backward compatibility)
 export const researchSections: ResearchSection[] = [
   {
@@ -429,13 +484,16 @@ export const getPublicationByTitle = (title: string): PublicationWithMedia | und
 };
 
 export const getAllMediaItems = () => {
-  const allItems = publicationsWithMedia.flatMap(pub => 
+  const publicationMedia = publicationsWithMedia.flatMap(pub =>
     pub.mediaCoverage.map(media => ({
       ...media,
       description: pub.title
     }))
   );
-  
+
+  // Combine publication media with standalone media
+  const allItems = [...publicationMedia, ...standaloneMedia];
+
   // Sort by date (newest first)
   return allItems.sort((a, b) => {
     // Parse dates to compare (assuming format like "Apr 2025", "Feb 2021", etc.)
