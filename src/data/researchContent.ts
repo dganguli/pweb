@@ -10,7 +10,7 @@ export const publicationsWithMedia: PublicationWithMedia[] = [
     details: "Anthropic Research Blog, Jun 2025",
     link: "https://www.anthropic.com/news/how-people-use-claude-for-support-advice-and-companionship",
     role: "last author",
-    category: 'alignment',
+    category: 'policy',
     mediaCoverage: []
   },
   {
@@ -485,7 +485,18 @@ export const researchSections: ResearchSection[] = [
     gradient: "bg-yellow-300",
     hoverGradient: "hover:bg-yellow-50",
     textColor: "text-yellow-500",
-    papers: publicationsWithMedia.filter(p => p.category === 'policy').map(p => ({
+    papers: publicationsWithMedia.filter(p => p.category === 'policy').sort((a, b) => {
+      const parseDate = (dateStr: string) => {
+        const [, date] = dateStr.split(', ');
+        const [month, year] = date.split(' ');
+        const monthMap: { [key: string]: number } = {
+          'Jan': 0, 'Feb': 1, 'Mar': 2, 'Apr': 3, 'May': 4, 'Jun': 5,
+          'Jul': 6, 'Aug': 7, 'Sep': 8, 'Oct': 9, 'Nov': 10, 'Dec': 11
+        };
+        return new Date(parseInt(year), monthMap[month] || 0);
+      };
+      return parseDate(b.details).getTime() - parseDate(a.details).getTime();
+    }).map(p => ({
       title: p.title,
       details: p.details,
       link: p.link,
