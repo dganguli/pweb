@@ -265,7 +265,7 @@ export const publicationsWithMedia: PublicationWithMedia[] = [
     details: "Anthropic Research Blog, Oct 2023",
     link: "https://www.anthropic.com/research/evaluating-ai-systems",
     role: "first author",
-    category: 'policy',
+    category: 'evals',
     mediaCoverage: []
   },
   {
@@ -432,7 +432,18 @@ export const researchSections: ResearchSection[] = [
     gradient: "bg-orange-500",
     hoverGradient: "hover:bg-orange-50",
     textColor: "text-orange-500",
-    papers: publicationsWithMedia.filter(p => p.category === 'evals').map(p => ({
+    papers: publicationsWithMedia.filter(p => p.category === 'evals').sort((a, b) => {
+      const parseDate = (dateStr: string) => {
+        const [, date] = dateStr.split(', ');
+        const [month, year] = date.split(' ');
+        const monthMap: { [key: string]: number } = {
+          'Jan': 0, 'Feb': 1, 'Mar': 2, 'Apr': 3, 'May': 4, 'Jun': 5,
+          'Jul': 6, 'Aug': 7, 'Sep': 8, 'Oct': 9, 'Nov': 10, 'Dec': 11
+        };
+        return new Date(parseInt(year), monthMap[month] || 0);
+      };
+      return parseDate(b.details).getTime() - parseDate(a.details).getTime();
+    }).map(p => ({
       title: p.title,
       details: p.details,
       link: p.link,
