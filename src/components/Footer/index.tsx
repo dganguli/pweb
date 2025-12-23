@@ -14,7 +14,8 @@ export const Footer = () => {
         </div>
         <div className="text-sm opacity-90">
           <p className="mb-2">© 2024 deep ganguli</p>
-          <p className="text-xs opacity-75">built with claude 3.5 sonnet</p>
+          <p className="text-xs opacity-75">built with claude (sonnet 3.5 → opus 4.5 era)</p>
+          <p className="text-xs opacity-60 mt-1">last updated: {__LAST_UPDATED__}</p>
         </div>
       </div>
     </footer>
