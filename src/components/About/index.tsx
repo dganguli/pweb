@@ -1,5 +1,16 @@
 import { getRecentPublications, getPublicationById } from '../../data/researchContent';
 import { Bot, Ruler, ScrollText, Brain, Wrench, Hammer, Landmark, ChevronDown, ChevronUp, Youtube, Newspaper } from 'lucide-react';
+
+// Shared color config for category styling
+const categoryColors = {
+  alignment: { iconColor: 'text-pink-500', linkColor: 'text-pink-500 hover:text-pink-600' },
+  evals: { iconColor: 'text-orange-500', linkColor: 'text-orange-500 hover:text-orange-600' },
+  labor: { iconColor: 'text-red-500', linkColor: 'text-red-500 hover:text-red-600' },
+  democracy: { iconColor: 'text-amber-500', linkColor: 'text-amber-500 hover:text-amber-600' },
+  policy: { iconColor: 'text-yellow-600', linkColor: 'text-yellow-600 hover:text-yellow-700' },
+  neuroscience: { iconColor: 'text-fuchsia-500', linkColor: 'text-fuchsia-500 hover:text-fuchsia-600' },
+  software: { iconColor: 'text-purple-500', linkColor: 'text-purple-500 hover:text-purple-600' },
+} as const;
 import { useState } from 'react';
 
 export const About = () => {
@@ -89,48 +100,20 @@ export const About = () => {
               {recentPublications.map((pub) => {
               // Map category to icon and color (matching research section colors)
               const getCategoryStyle = (category: string) => {
-                switch (category) {
-                  case 'alignment':
-                    return {
-                      icon: <Bot className="w-5 h-5 text-pink-500 mr-2 flex-shrink-0" />,
-                      linkColor: "text-pink-500 hover:text-pink-600"
-                    };
-                  case 'evals':
-                    return {
-                      icon: <Ruler className="w-5 h-5 text-orange-500 mr-2 flex-shrink-0" />,
-                      linkColor: "text-orange-500 hover:text-orange-600"
-                    };
-                  case 'labor':
-                    return {
-                      icon: <Hammer className="w-5 h-5 text-red-500 mr-2 flex-shrink-0" />,
-                      linkColor: "text-red-500 hover:text-red-600"
-                    };
-                  case 'democracy':
-                    return {
-                      icon: <Landmark className="w-5 h-5 text-blue-500 mr-2 flex-shrink-0" />,
-                      linkColor: "text-blue-500 hover:text-blue-600"
-                    };
-                  case 'policy':
-                    return {
-                      icon: <ScrollText className="w-5 h-5 text-yellow-600 mr-2 flex-shrink-0" />,
-                      linkColor: "text-yellow-600 hover:text-yellow-700"
-                    };
-                  case 'neuroscience':
-                    return {
-                      icon: <Brain className="w-5 h-5 text-pink-500 mr-2 flex-shrink-0" />,
-                      linkColor: "text-pink-500 hover:text-pink-600"
-                    };
-                  case 'software':
-                    return {
-                      icon: <Wrench className="w-5 h-5 text-purple-500 mr-2 flex-shrink-0" />,
-                      linkColor: "text-purple-500 hover:text-purple-600"
-                    };
-                  default:
-                    return {
-                      icon: <Bot className="w-5 h-5 text-pink-500 mr-2 flex-shrink-0" />,
-                      linkColor: "text-pink-500 hover:text-pink-600"
-                    };
-                }
+                const colors = categoryColors[category as keyof typeof categoryColors] || categoryColors.alignment;
+                const icons: Record<string, JSX.Element> = {
+                  alignment: <Bot className={`w-5 h-5 ${colors.iconColor} mr-2 flex-shrink-0`} />,
+                  evals: <Ruler className={`w-5 h-5 ${colors.iconColor} mr-2 flex-shrink-0`} />,
+                  labor: <Hammer className={`w-5 h-5 ${colors.iconColor} mr-2 flex-shrink-0`} />,
+                  democracy: <Landmark className={`w-5 h-5 ${colors.iconColor} mr-2 flex-shrink-0`} />,
+                  policy: <ScrollText className={`w-5 h-5 ${colors.iconColor} mr-2 flex-shrink-0`} />,
+                  neuroscience: <Brain className={`w-5 h-5 ${colors.iconColor} mr-2 flex-shrink-0`} />,
+                  software: <Wrench className={`w-5 h-5 ${colors.iconColor} mr-2 flex-shrink-0`} />,
+                };
+                return {
+                  icon: icons[category] || icons.alignment,
+                  linkColor: colors.linkColor
+                };
               };
               
               // Extract date from details (format: "Venue, Month Year")
@@ -169,48 +152,20 @@ export const About = () => {
               {favoritePublications.map((pub) => {
               // Map category to icon and color (matching research section colors)
               const getCategoryStyle = (category: string) => {
-                switch (category) {
-                  case 'alignment':
-                    return {
-                      icon: <Bot className="w-5 h-5 text-pink-500 mr-2 flex-shrink-0" />,
-                      linkColor: "text-pink-500 hover:text-pink-600"
-                    };
-                  case 'evals':
-                    return {
-                      icon: <Ruler className="w-5 h-5 text-orange-500 mr-2 flex-shrink-0" />,
-                      linkColor: "text-orange-500 hover:text-orange-600"
-                    };
-                  case 'labor':
-                    return {
-                      icon: <Hammer className="w-5 h-5 text-red-500 mr-2 flex-shrink-0" />,
-                      linkColor: "text-red-500 hover:text-red-600"
-                    };
-                  case 'democracy':
-                    return {
-                      icon: <Landmark className="w-5 h-5 text-blue-500 mr-2 flex-shrink-0" />,
-                      linkColor: "text-blue-500 hover:text-blue-600"
-                    };
-                  case 'policy':
-                    return {
-                      icon: <ScrollText className="w-5 h-5 text-yellow-600 mr-2 flex-shrink-0" />,
-                      linkColor: "text-yellow-600 hover:text-yellow-700"
-                    };
-                  case 'neuroscience':
-                    return {
-                      icon: <Brain className="w-5 h-5 text-pink-500 mr-2 flex-shrink-0" />,
-                      linkColor: "text-pink-500 hover:text-pink-600"
-                    };
-                  case 'software':
-                    return {
-                      icon: <Wrench className="w-5 h-5 text-purple-500 mr-2 flex-shrink-0" />,
-                      linkColor: "text-purple-500 hover:text-purple-600"
-                    };
-                  default:
-                    return {
-                      icon: <Bot className="w-5 h-5 text-pink-500 mr-2 flex-shrink-0" />,
-                      linkColor: "text-pink-500 hover:text-pink-600"
-                    };
-                }
+                const colors = categoryColors[category as keyof typeof categoryColors] || categoryColors.alignment;
+                const icons: Record<string, JSX.Element> = {
+                  alignment: <Bot className={`w-5 h-5 ${colors.iconColor} mr-2 flex-shrink-0`} />,
+                  evals: <Ruler className={`w-5 h-5 ${colors.iconColor} mr-2 flex-shrink-0`} />,
+                  labor: <Hammer className={`w-5 h-5 ${colors.iconColor} mr-2 flex-shrink-0`} />,
+                  democracy: <Landmark className={`w-5 h-5 ${colors.iconColor} mr-2 flex-shrink-0`} />,
+                  policy: <ScrollText className={`w-5 h-5 ${colors.iconColor} mr-2 flex-shrink-0`} />,
+                  neuroscience: <Brain className={`w-5 h-5 ${colors.iconColor} mr-2 flex-shrink-0`} />,
+                  software: <Wrench className={`w-5 h-5 ${colors.iconColor} mr-2 flex-shrink-0`} />,
+                };
+                return {
+                  icon: icons[category] || icons.alignment,
+                  linkColor: colors.linkColor
+                };
               };
               
               // Extract date from details (format: "Venue, Month Year")

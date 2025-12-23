@@ -415,8 +415,8 @@ export const researchSections: ResearchSection[] = [
     id: 'alignment',
     title: "ai alignment",
     icon: Bot,
-    gradient: "bg-gradient-to-r from-pink-500 to-orange-400",
-    hoverGradient: "hover:bg-gradient-to-r hover:from-pink-50 hover:to-orange-50",
+    gradient: "bg-pink-500",
+    hoverGradient: "hover:bg-pink-50",
     textColor: "text-pink-500",
     papers: publicationsWithMedia.filter(p => p.category === 'alignment').map(p => ({
       title: p.title,
@@ -429,8 +429,8 @@ export const researchSections: ResearchSection[] = [
     id: 'evals',
     title: "ai evaluation",
     icon: Ruler,
-    gradient: "bg-gradient-to-r from-orange-400 to-yellow-400",
-    hoverGradient: "hover:bg-gradient-to-r hover:from-orange-50 hover:to-yellow-50",
+    gradient: "bg-orange-500",
+    hoverGradient: "hover:bg-orange-50",
     textColor: "text-orange-500",
     papers: publicationsWithMedia.filter(p => p.category === 'evals').map(p => ({
       title: p.title,
@@ -443,8 +443,8 @@ export const researchSections: ResearchSection[] = [
     id: 'labor',
     title: "ai and labor",
     icon: Hammer,
-    gradient: "bg-gradient-to-r from-red-500 to-orange-500",
-    hoverGradient: "hover:bg-gradient-to-r hover:from-red-50 hover:to-orange-50",
+    gradient: "bg-red-500",
+    hoverGradient: "hover:bg-red-50",
     textColor: "text-red-500",
     papers: publicationsWithMedia.filter(p => p.category === 'labor').map(p => ({
       title: p.title,
@@ -457,9 +457,9 @@ export const researchSections: ResearchSection[] = [
     id: 'democracy',
     title: "ai and democracy",
     icon: Landmark,
-    gradient: "bg-gradient-to-r from-blue-500 to-indigo-500",
-    hoverGradient: "hover:bg-gradient-to-r hover:from-blue-50 hover:to-indigo-50",
-    textColor: "text-blue-500",
+    gradient: "bg-amber-500",
+    hoverGradient: "hover:bg-amber-50",
+    textColor: "text-amber-500",
     papers: publicationsWithMedia.filter(p => p.category === 'democracy').sort((a, b) => {
       const parseDate = (dateStr: string) => {
         const [, date] = dateStr.split(', ');
@@ -482,8 +482,8 @@ export const researchSections: ResearchSection[] = [
     id: 'policy',
     title: "ai policy",
     icon: ScrollText,
-    gradient: "bg-gradient-to-r from-yellow-400 to-pink-400",
-    hoverGradient: "hover:bg-gradient-to-r hover:from-yellow-50 hover:to-pink-50",
+    gradient: "bg-yellow-400",
+    hoverGradient: "hover:bg-yellow-50",
     textColor: "text-yellow-600",
     papers: publicationsWithMedia.filter(p => p.category === 'policy').map(p => ({
       title: p.title,
@@ -496,9 +496,9 @@ export const researchSections: ResearchSection[] = [
     id: 'neuroscience',
     title: "neuroscience",
     icon: Brain,
-    gradient: "bg-gradient-to-r from-pink-400 to-purple-400",
-    hoverGradient: "hover:bg-gradient-to-r hover:from-pink-50 hover:to-purple-50",
-    textColor: "text-pink-500",
+    gradient: "bg-fuchsia-500",
+    hoverGradient: "hover:bg-fuchsia-50",
+    textColor: "text-fuchsia-500",
     papers: publicationsWithMedia.filter(p => p.category === 'neuroscience').map(p => ({
       title: p.title,
       details: p.details,
@@ -510,8 +510,8 @@ export const researchSections: ResearchSection[] = [
     id: 'software',
     title: "research engineering",
     icon: Wrench,
-    gradient: "bg-gradient-to-r from-purple-400 to-orange-400",
-    hoverGradient: "hover:bg-gradient-to-r hover:from-purple-50 hover:to-orange-50",
+    gradient: "bg-purple-500",
+    hoverGradient: "hover:bg-purple-50",
     textColor: "text-purple-500",
     papers: publicationsWithMedia.filter(p => p.category === 'software').map(p => ({
       title: p.title,
