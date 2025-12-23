@@ -19,7 +19,7 @@ export interface PublicationWithMedia {
   details: string;
   link: string;
   role?: string;
-  category: 'alignment' | 'evals' | 'policy' | 'neuroscience' | 'software';
+  category: 'alignment' | 'evals' | 'labor' | 'policy' | 'neuroscience' | 'software';
   mediaCoverage: Omit<MediaItem, 'description'>[];
 }
 

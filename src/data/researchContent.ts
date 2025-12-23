@@ -1,5 +1,5 @@
 import { PublicationWithMedia, ResearchSection } from '../types';
-import { Bot, Ruler, ScrollText, Brain, Wrench } from 'lucide-react';
+import { Bot, Ruler, ScrollText, Brain, Wrench, Hammer } from 'lucide-react';
 
 // Enhanced publication data with embedded media coverage
 export const publicationsWithMedia: PublicationWithMedia[] = [
@@ -117,7 +117,7 @@ export const publicationsWithMedia: PublicationWithMedia[] = [
     details: "Anthropic Research Blog, Dec 2025",
     link: "https://www.anthropic.com/research/anthropic-interviewer",
     role: "last author",
-    category: 'evals',
+    category: 'labor',
     mediaCoverage: [
       {
         title: "I Used Anthropic's Interviewer Tool to Share My AI Complaints",
@@ -139,7 +139,7 @@ export const publicationsWithMedia: PublicationWithMedia[] = [
     details: "Anthropic Research Blog, Dec 2025",
     link: "https://www.anthropic.com/research/how-ai-is-transforming-work-at-anthropic",
     role: "last author",
-    category: 'evals',
+    category: 'labor',
     mediaCoverage: [
       {
         title: "Anthropic Turns Inward to Show How AI Affects Its Own Workforce",
@@ -161,7 +161,7 @@ export const publicationsWithMedia: PublicationWithMedia[] = [
     details: "arXiv, Feb 2025",
     link: "https://arxiv.org/abs/2503.04761",
     role: "last author",
-    category: 'evals',
+    category: 'labor',
     mediaCoverage: [
       {
         title: "Exclusive: Anthropic's Index Tracks AI Economy",
@@ -256,7 +256,7 @@ export const publicationsWithMedia: PublicationWithMedia[] = [
     details: "Anthropic Economic Index, Feb 2025",
     link: "https://www.anthropic.com/economic-index",
     role: "last author",
-    category: 'policy',
+    category: 'labor',
     mediaCoverage: []
   },
   {
@@ -433,6 +433,20 @@ export const researchSections: ResearchSection[] = [
     hoverGradient: "hover:bg-gradient-to-r hover:from-orange-50 hover:to-yellow-50",
     textColor: "text-orange-500",
     papers: publicationsWithMedia.filter(p => p.category === 'evals').map(p => ({
+      title: p.title,
+      details: p.details,
+      link: p.link,
+      role: p.role
+    }))
+  },
+  {
+    id: 'labor',
+    title: "ai and labor",
+    icon: Hammer,
+    gradient: "bg-gradient-to-r from-red-500 to-orange-500",
+    hoverGradient: "hover:bg-gradient-to-r hover:from-red-50 hover:to-orange-50",
+    textColor: "text-red-500",
+    papers: publicationsWithMedia.filter(p => p.category === 'labor').map(p => ({
       title: p.title,
       details: p.details,
       link: p.link,
