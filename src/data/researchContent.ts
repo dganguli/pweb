@@ -457,9 +457,9 @@ export const researchSections: ResearchSection[] = [
     id: 'democracy',
     title: "ai and democracy",
     icon: Landmark,
-    gradient: "bg-amber-500",
+    gradient: "bg-amber-600",
     hoverGradient: "hover:bg-amber-50",
-    textColor: "text-amber-500",
+    textColor: "text-amber-600",
     papers: publicationsWithMedia.filter(p => p.category === 'democracy').sort((a, b) => {
       const parseDate = (dateStr: string) => {
         const [, date] = dateStr.split(', ');
@@ -482,9 +482,9 @@ export const researchSections: ResearchSection[] = [
     id: 'policy',
     title: "ai policy",
     icon: ScrollText,
-    gradient: "bg-yellow-400",
+    gradient: "bg-yellow-300",
     hoverGradient: "hover:bg-yellow-50",
-    textColor: "text-yellow-600",
+    textColor: "text-yellow-500",
     papers: publicationsWithMedia.filter(p => p.category === 'policy').map(p => ({
       title: p.title,
       details: p.details,

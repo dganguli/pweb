@@ -6,8 +6,8 @@ const categoryColors = {
   alignment: { iconColor: 'text-pink-500', linkColor: 'text-pink-500 hover:text-pink-600' },
   evals: { iconColor: 'text-orange-500', linkColor: 'text-orange-500 hover:text-orange-600' },
   labor: { iconColor: 'text-red-500', linkColor: 'text-red-500 hover:text-red-600' },
-  democracy: { iconColor: 'text-amber-500', linkColor: 'text-amber-500 hover:text-amber-600' },
-  policy: { iconColor: 'text-yellow-600', linkColor: 'text-yellow-600 hover:text-yellow-700' },
+  democracy: { iconColor: 'text-amber-600', linkColor: 'text-amber-600 hover:text-amber-700' },
+  policy: { iconColor: 'text-yellow-500', linkColor: 'text-yellow-500 hover:text-yellow-600' },
   neuroscience: { iconColor: 'text-fuchsia-500', linkColor: 'text-fuchsia-500 hover:text-fuchsia-600' },
   software: { iconColor: 'text-purple-500', linkColor: 'text-purple-500 hover:text-purple-600' },
 } as const;

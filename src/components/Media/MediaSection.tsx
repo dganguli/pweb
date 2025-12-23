@@ -14,7 +14,7 @@ export const MediaSection = ({ isOpen, onToggle }: MediaSectionProps) => {
 
   return (
     <Card className="bg-white/80 backdrop-blur border-none shadow-lg hover:shadow-xl transition-shadow rounded-xl overflow-hidden">
-      <div className="h-1 bg-gradient-to-r from-pink-500 to-orange-400"></div>
+      <div className="h-0.5 bg-gradient-to-r from-pink-500 to-orange-400"></div>
       <button
         onClick={onToggle}
         className="w-full text-left"

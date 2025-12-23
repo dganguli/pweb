@@ -15,7 +15,7 @@ export const ResearchSection = ({
 }: ResearchSectionProps) => (
   <div className="transform transition-transform">
     <Card className="bg-white/80 backdrop-blur border-none shadow-lg hover:shadow-xl transition-shadow rounded-xl overflow-hidden">
-      <div className={`h-1 ${gradient}`}></div>
+      <div className={`h-0.5 ${gradient}`}></div>
       
       <button 
         onClick={onToggle}
