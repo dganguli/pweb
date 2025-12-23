@@ -242,6 +242,15 @@ export const publicationsWithMedia: PublicationWithMedia[] = [
 
   // AI Policy
   {
+    id: 'ai-democracy',
+    title: "The Impact of Advanced AI Systems on Democracy",
+    details: "Nature Human Behaviour, Oct 2025",
+    link: "https://www.nature.com/articles/s41562-025-02309-z",
+    role: "middle author",
+    category: 'policy',
+    mediaCoverage: []
+  },
+  {
     id: 'anthropic-economic-index',
     title: "Anthropic Economic Index: Understanding AI's Effects on the Economy Over Time",
     details: "Anthropic Economic Index, Feb 2025",
