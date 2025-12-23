@@ -480,7 +480,7 @@ export const researchSections: ResearchSection[] = [
   },
   {
     id: 'policy',
-    title: "ai policy",
+    title: "ai and society",
     icon: ScrollText,
     gradient: "bg-yellow-300",
     hoverGradient: "hover:bg-yellow-50",
