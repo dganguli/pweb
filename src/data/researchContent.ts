@@ -1,5 +1,5 @@
 import { PublicationWithMedia, ResearchSection } from '../types';
-import { Bot, Ruler, ScrollText, Brain, Wrench, Hammer } from 'lucide-react';
+import { Bot, Ruler, ScrollText, Brain, Wrench, Hammer, Landmark } from 'lucide-react';
 
 // Enhanced publication data with embedded media coverage
 export const publicationsWithMedia: PublicationWithMedia[] = [
@@ -35,7 +35,7 @@ export const publicationsWithMedia: PublicationWithMedia[] = [
     details: "FAccT, Jun 2024",
     link: "https://dl.acm.org/doi/10.1145/3630106.3658979",
     role: "last author",
-    category: 'alignment',
+    category: 'democracy',
     mediaCoverage: [
       {
         title: "The 3 Most Important AI Innovations of 2023",
@@ -247,7 +247,7 @@ export const publicationsWithMedia: PublicationWithMedia[] = [
     details: "Nature Human Behaviour, Oct 2025",
     link: "https://www.nature.com/articles/s41562-025-02309-z",
     role: "middle author",
-    category: 'policy',
+    category: 'democracy',
     mediaCoverage: []
   },
   {
@@ -274,7 +274,7 @@ export const publicationsWithMedia: PublicationWithMedia[] = [
     details: "arXiv, Jun 2023",
     link: "https://arxiv.org/abs/2306.11932",
     role: "last author",
-    category: 'policy',
+    category: 'democracy',
     mediaCoverage: []
   },
   {
@@ -282,7 +282,7 @@ export const publicationsWithMedia: PublicationWithMedia[] = [
     title: "Testing and Mitigating Elections-related Risks from AI",
     details: "Anthropic Research Blog, Jun 2024",
     link: "https://www.anthropic.com/news/testing-and-mitigating-elections-related-risks",
-    category: 'policy',
+    category: 'democracy',
     mediaCoverage: []
   },
   {
@@ -447,6 +447,31 @@ export const researchSections: ResearchSection[] = [
     hoverGradient: "hover:bg-gradient-to-r hover:from-red-50 hover:to-orange-50",
     textColor: "text-red-500",
     papers: publicationsWithMedia.filter(p => p.category === 'labor').map(p => ({
+      title: p.title,
+      details: p.details,
+      link: p.link,
+      role: p.role
+    }))
+  },
+  {
+    id: 'democracy',
+    title: "ai and democracy",
+    icon: Landmark,
+    gradient: "bg-gradient-to-r from-blue-500 to-indigo-500",
+    hoverGradient: "hover:bg-gradient-to-r hover:from-blue-50 hover:to-indigo-50",
+    textColor: "text-blue-500",
+    papers: publicationsWithMedia.filter(p => p.category === 'democracy').sort((a, b) => {
+      const parseDate = (dateStr: string) => {
+        const [, date] = dateStr.split(', ');
+        const [month, year] = date.split(' ');
+        const monthMap: { [key: string]: number } = {
+          'Jan': 0, 'Feb': 1, 'Mar': 2, 'Apr': 3, 'May': 4, 'Jun': 5,
+          'Jul': 6, 'Aug': 7, 'Sep': 8, 'Oct': 9, 'Nov': 10, 'Dec': 11
+        };
+        return new Date(parseInt(year), monthMap[month] || 0);
+      };
+      return parseDate(b.details).getTime() - parseDate(a.details).getTime();
+    }).map(p => ({
       title: p.title,
       details: p.details,
       link: p.link,

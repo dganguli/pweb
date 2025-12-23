@@ -1,5 +1,5 @@
 import { getRecentPublications, getPublicationById } from '../../data/researchContent';
-import { Bot, Ruler, ScrollText, Brain, Wrench, Hammer, ChevronDown, ChevronUp, Youtube, Newspaper } from 'lucide-react';
+import { Bot, Ruler, ScrollText, Brain, Wrench, Hammer, Landmark, ChevronDown, ChevronUp, Youtube, Newspaper } from 'lucide-react';
 import { useState } from 'react';
 
 export const About = () => {
@@ -105,6 +105,11 @@ export const About = () => {
                       icon: <Hammer className="w-5 h-5 text-red-500 mr-2 flex-shrink-0" />,
                       linkColor: "text-red-500 hover:text-red-600"
                     };
+                  case 'democracy':
+                    return {
+                      icon: <Landmark className="w-5 h-5 text-blue-500 mr-2 flex-shrink-0" />,
+                      linkColor: "text-blue-500 hover:text-blue-600"
+                    };
                   case 'policy':
                     return {
                       icon: <ScrollText className="w-5 h-5 text-yellow-600 mr-2 flex-shrink-0" />,
@@ -179,6 +184,11 @@ export const About = () => {
                     return {
                       icon: <Hammer className="w-5 h-5 text-red-500 mr-2 flex-shrink-0" />,
                       linkColor: "text-red-500 hover:text-red-600"
+                    };
+                  case 'democracy':
+                    return {
+                      icon: <Landmark className="w-5 h-5 text-blue-500 mr-2 flex-shrink-0" />,
+                      linkColor: "text-blue-500 hover:text-blue-600"
                     };
                   case 'policy':
                     return {
