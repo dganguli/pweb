@@ -93,7 +93,7 @@ export const StickyNav = () => {
         <div className="max-w-4xl mx-auto px-4 py-3 flex items-center justify-between">
           <button
             onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
-            className="text-lg font-bold bg-gradient-to-r from-pink-500 to-orange-500 text-transparent bg-clip-text hover:opacity-80 transition-opacity"
+            className="text-base sm:text-lg font-bold bg-gradient-to-r from-pink-500 to-orange-500 text-transparent bg-clip-text hover:opacity-80 transition-opacity whitespace-nowrap"
           >
             deep ganguli
           </button>
