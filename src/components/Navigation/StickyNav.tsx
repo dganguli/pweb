@@ -89,7 +89,7 @@ export const StickyNav = () => {
 
   return (
     <nav className="fixed top-0 left-0 right-0 z-50">
-      <div className="bg-white/90 backdrop-blur-md shadow-md border-b border-orange-100">
+      <div className="bg-orange-50/85 backdrop-blur-md shadow-sm border-b border-orange-200/50">
         <div className="max-w-4xl mx-auto px-4 py-3 flex items-center justify-center">
           <div className="flex items-center gap-2 sm:gap-3">
             {navItems.map((item) => (
