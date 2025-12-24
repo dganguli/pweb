@@ -1,5 +1,5 @@
 import { useState, useEffect, useRef } from 'react';
-import { ChevronDown, Sparkles, Archive } from 'lucide-react';
+import { ChevronDown } from 'lucide-react';
 import { researchSections } from '../../data/researchContent';
 import { mediaSections } from '../Media/MediaContainer';
 
@@ -108,10 +108,6 @@ export const StickyNav = () => {
     }, 320);
   };
 
-  const getMediaIcon = (id: string) => {
-    if (id === 'highlights') return Sparkles;
-    return Archive;
-  };
 
   return (
     <nav className="fixed top-0 left-0 right-0 z-50">
@@ -174,12 +170,12 @@ export const StickyNav = () => {
                       <div className="bg-white/95 backdrop-blur-md rounded-xl shadow-lg border border-orange-100 p-2 w-48">
                         <div className="flex flex-col gap-1">
                           {mediaSections.map((section) => {
-                            const Icon = getMediaIcon(section.id);
+                            const Icon = section.icon;
                             return (
                               <button
                                 key={section.id}
                                 onClick={() => handleMediaClick(section.id)}
-                                className="flex items-center gap-2 px-3 py-2 rounded-lg text-sm font-medium transition-all text-left hover:bg-gray-50 text-pink-500"
+                                className={`flex items-center gap-2 px-3 py-2 rounded-lg text-sm font-medium transition-all text-left hover:bg-gray-50 ${section.textColor}`}
                               >
                                 <Icon className="w-4 h-4" />
                                 <span>{section.title}</span>

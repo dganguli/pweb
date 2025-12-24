@@ -15,9 +15,12 @@ const highlightedTitles = [
 interface MediaSectionProps {
   isOpen: boolean;
   onToggle: () => void;
+  gradient: string;
+  hoverGradient: string;
+  textColor: string;
 }
 
-export const MediaSection = ({ isOpen, onToggle }: MediaSectionProps) => {
+export const MediaSection = ({ isOpen, onToggle, gradient, hoverGradient, textColor }: MediaSectionProps) => {
   const getIconForPaper = useIconForPaper();
   const allMediaItems = getAllMediaItems();
   // Filter out highlighted items
@@ -25,17 +28,17 @@ export const MediaSection = ({ isOpen, onToggle }: MediaSectionProps) => {
 
   return (
     <Card className="bg-white/80 backdrop-blur border-none shadow-lg hover:shadow-xl transition-shadow rounded-xl overflow-hidden">
-      <div className="h-0.5 bg-pink-500"></div>
+      <div className={`h-0.5 ${gradient}`}></div>
       <button
         onClick={onToggle}
         className="w-full text-left"
       >
         <div className={`w-full px-6 py-4 transition-colors flex items-center justify-between ${isOpen ? 'bg-gray-50' : ''}`}>
           <div className="flex items-center gap-2 text-2xl">
-            <Archive className="h-6 w-6 text-pink-500" />
-            <span className="text-pink-500">all coverage ({mediaItems.length})</span>
+            <Archive className={`h-6 w-6 ${textColor}`} />
+            <span className={textColor}>all coverage ({mediaItems.length})</span>
           </div>
-          <ChevronDown className={`w-5 h-5 transition-transform text-pink-500 ${isOpen ? 'transform rotate-180' : ''}`} />
+          <ChevronDown className={`w-5 h-5 transition-transform ${textColor} ${isOpen ? 'transform rotate-180' : ''}`} />
         </div>
       </button>
 
@@ -48,7 +51,7 @@ export const MediaSection = ({ isOpen, onToggle }: MediaSectionProps) => {
                   href={item.link}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="block p-4 rounded-lg hover:bg-pink-50 transition-all duration-200 border border-orange-100 hover:shadow-md group whitespace-normal"
+                  className={`block p-4 rounded-lg ${hoverGradient} transition-all duration-200 border border-orange-100 hover:shadow-md group whitespace-normal`}
                 >
                   <h4 className="font-semibold text-gray-900 group-hover:text-gray-700 break-words">{item.title}</h4>
                   <div className="flex flex-col sm:flex-row justify-between items-start gap-2">

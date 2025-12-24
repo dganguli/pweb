@@ -38,22 +38,25 @@ export const highlights = [
 interface MediaHighlightsProps {
   isOpen: boolean;
   onToggle: () => void;
+  gradient: string;
+  hoverGradient: string;
+  textColor: string;
 }
 
-export const MediaHighlights = ({ isOpen, onToggle }: MediaHighlightsProps) => {
+export const MediaHighlights = ({ isOpen, onToggle, gradient, hoverGradient, textColor }: MediaHighlightsProps) => {
   return (
     <Card className="bg-white/80 backdrop-blur border-none shadow-lg hover:shadow-xl transition-shadow rounded-xl overflow-hidden">
-      <div className="h-0.5 bg-pink-500"></div>
+      <div className={`h-0.5 ${gradient}`}></div>
       <button
         onClick={onToggle}
         className="w-full text-left"
       >
         <div className={`w-full px-6 py-4 transition-colors flex items-center justify-between ${isOpen ? 'bg-gray-50' : ''}`}>
           <div className="flex items-center gap-2 text-2xl">
-            <Sparkles className="h-6 w-6 text-pink-500" />
-            <span className="text-pink-500">highlights</span>
+            <Sparkles className={`h-6 w-6 ${textColor}`} />
+            <span className={textColor}>highlights</span>
           </div>
-          <ChevronDown className={`w-5 h-5 transition-transform text-pink-500 ${isOpen ? 'transform rotate-180' : ''}`} />
+          <ChevronDown className={`w-5 h-5 transition-transform ${textColor} ${isOpen ? 'transform rotate-180' : ''}`} />
         </div>
       </button>
 
@@ -66,7 +69,7 @@ export const MediaHighlights = ({ isOpen, onToggle }: MediaHighlightsProps) => {
                   href={item.link}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="block p-4 rounded-lg hover:bg-pink-50 transition-all duration-200 border border-orange-100 hover:shadow-md group whitespace-normal"
+                  className={`block p-4 rounded-lg ${hoverGradient} transition-all duration-200 border border-orange-100 hover:shadow-md group whitespace-normal`}
                 >
                   <h4 className="font-semibold text-gray-900 group-hover:text-gray-700 break-words">{item.title}</h4>
                   <div className="flex flex-col sm:flex-row justify-between items-start gap-2">
