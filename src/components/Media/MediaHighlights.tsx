@@ -1,5 +1,6 @@
 import { Card, CardContent } from '@/components/ui/card';
 import { Sparkles, ChevronDown } from 'lucide-react';
+import { useIconForPaper } from '../../hooks/useIconForPaper';
 
 // Curated highlights - the most significant media coverage
 export const highlights = [
@@ -8,30 +9,35 @@ export const highlights = [
     outlet: "The Verge",
     date: "Dec 2025",
     link: "https://www.theverge.com/ai-artificial-intelligence/836335/anthropic-societal-impacts-team-ai-claude-effects",
+    description: "Societal Impacts Team",
   },
   {
     title: "What if We Could All Control AI?",
     outlet: "The New York Times",
     date: "Oct 2023",
     link: "https://www.nytimes.com/2023/10/17/technology/ai-chatbot-control.html",
+    description: "Collective Constitutional AI: Aligning a Language Model with Public Input",
   },
   {
     title: "The 3 Most Important AI Innovations of 2023",
     outlet: "Time Magazine",
     date: "Dec 2023",
     link: "https://time.com/6547982/3-big-ai-innovations-from-2023/",
+    description: "Collective Constitutional AI: Aligning a Language Model with Public Input",
   },
   {
     title: "What if Dario Amodei is Right About AI?",
     outlet: "The Ezra Klein Show",
     date: "Apr 2024",
     link: "https://www.nytimes.com/2024/04/12/opinion/ezra-klein-podcast-dario-amodei.html",
+    description: "Measuring the Persuasiveness of Language Models",
   },
   {
     title: "The Unpredictable Abilities Emerging From Large AI Models",
     outlet: "Quanta Magazine",
     date: "Mar 2023",
     link: "https://www.quantamagazine.org/the-unpredictable-abilities-emerging-from-large-ai-models-20230316/",
+    description: "Predictability and Surprise in Large Generative Models",
   },
 ];
 
@@ -44,6 +50,8 @@ interface MediaHighlightsProps {
 }
 
 export const MediaHighlights = ({ isOpen, onToggle, gradient, hoverGradient, textColor }: MediaHighlightsProps) => {
+  const getIconForPaper = useIconForPaper();
+
   return (
     <Card className="bg-white/80 backdrop-blur border-none shadow-lg hover:shadow-xl transition-shadow rounded-xl overflow-hidden">
       <div className={`h-0.5 ${gradient}`}></div>
@@ -80,6 +88,15 @@ export const MediaHighlights = ({ isOpen, onToggle, gradient, hoverGradient, tex
                     </p>
                     <span className="text-sm text-gray-500">{item.date}</span>
                   </div>
+                  {item.description && (
+                    <p className="text-sm text-gray-500 leading-relaxed flex items-start gap-2 mt-2">
+                      {(() => {
+                        const iconInfo = getIconForPaper(item.description);
+                        return iconInfo ? <iconInfo.icon className={`w-4 h-4 ${iconInfo.color} flex-shrink-0 mt-1`} /> : null;
+                      })()}
+                      <span className="flex-1">{item.description}</span>
+                    </p>
+                  )}
                 </a>
               </li>
             ))}
