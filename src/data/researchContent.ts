@@ -1,5 +1,6 @@
 import { PublicationWithMedia, ResearchSection } from '../types';
 import { Bot, Ruler, ScrollText, Brain, Wrench, Hammer, Landmark } from 'lucide-react';
+import { sectionColors } from '../lib/sectionColors';
 
 // Enhanced publication data with embedded media coverage
 export const publicationsWithMedia: PublicationWithMedia[] = [
@@ -409,15 +410,13 @@ export const standaloneMedia: { title: string; outlet: string; date: string; lin
   }
 ];
 
-// Research sections configuration (unchanged structure for backward compatibility)
+// Research sections configuration (uses shared color palette)
 export const researchSections: ResearchSection[] = [
   {
     id: 'alignment',
     title: "ai alignment",
     icon: Bot,
-    gradient: "bg-pink-500",
-    hoverGradient: "hover:bg-pink-50",
-    textColor: "text-pink-500",
+    ...sectionColors.pink,
     papers: publicationsWithMedia.filter(p => p.category === 'alignment').map(p => ({
       title: p.title,
       details: p.details,
@@ -429,9 +428,7 @@ export const researchSections: ResearchSection[] = [
     id: 'evals',
     title: "ai evaluation",
     icon: Ruler,
-    gradient: "bg-orange-500",
-    hoverGradient: "hover:bg-orange-50",
-    textColor: "text-orange-500",
+    ...sectionColors.orange,
     papers: publicationsWithMedia.filter(p => p.category === 'evals').sort((a, b) => {
       const parseDate = (dateStr: string) => {
         const [, date] = dateStr.split(', ');
@@ -454,9 +451,7 @@ export const researchSections: ResearchSection[] = [
     id: 'labor',
     title: "ai and labor",
     icon: Hammer,
-    gradient: "bg-red-500",
-    hoverGradient: "hover:bg-red-50",
-    textColor: "text-red-500",
+    ...sectionColors.red,
     papers: publicationsWithMedia.filter(p => p.category === 'labor').map(p => ({
       title: p.title,
       details: p.details,
@@ -468,9 +463,7 @@ export const researchSections: ResearchSection[] = [
     id: 'democracy',
     title: "ai and democracy",
     icon: Landmark,
-    gradient: "bg-amber-600",
-    hoverGradient: "hover:bg-amber-50",
-    textColor: "text-amber-600",
+    ...sectionColors.amber,
     papers: publicationsWithMedia.filter(p => p.category === 'democracy').sort((a, b) => {
       const parseDate = (dateStr: string) => {
         const [, date] = dateStr.split(', ');
@@ -493,9 +486,7 @@ export const researchSections: ResearchSection[] = [
     id: 'policy',
     title: "ai and society",
     icon: ScrollText,
-    gradient: "bg-yellow-300",
-    hoverGradient: "hover:bg-yellow-50",
-    textColor: "text-yellow-500",
+    ...sectionColors.yellow,
     papers: publicationsWithMedia.filter(p => p.category === 'policy').sort((a, b) => {
       const parseDate = (dateStr: string) => {
         const [, date] = dateStr.split(', ');
@@ -518,9 +509,7 @@ export const researchSections: ResearchSection[] = [
     id: 'neuroscience',
     title: "neuroscience",
     icon: Brain,
-    gradient: "bg-fuchsia-500",
-    hoverGradient: "hover:bg-fuchsia-50",
-    textColor: "text-fuchsia-500",
+    ...sectionColors.fuchsia,
     papers: publicationsWithMedia.filter(p => p.category === 'neuroscience').map(p => ({
       title: p.title,
       details: p.details,
@@ -532,9 +521,7 @@ export const researchSections: ResearchSection[] = [
     id: 'software',
     title: "research engineering",
     icon: Wrench,
-    gradient: "bg-purple-500",
-    hoverGradient: "hover:bg-purple-50",
-    textColor: "text-purple-500",
+    ...sectionColors.purple,
     papers: publicationsWithMedia.filter(p => p.category === 'software').map(p => ({
       title: p.title,
       details: p.details,
