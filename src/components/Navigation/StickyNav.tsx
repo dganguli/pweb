@@ -1,16 +1,17 @@
 import { useState, useEffect, useRef } from 'react';
-import { ChevronDown } from 'lucide-react';
+import { ChevronDown, Sparkles, Archive } from 'lucide-react';
 import { researchSections } from '../../data/researchContent';
+import { mediaSections } from '../Media/MediaContainer';
 
 const navItems = [
   { id: 'about', label: 'about' },
-  { id: 'research', label: 'research', hasDropdown: true },
-  { id: 'media', label: 'media' },
+  { id: 'research', label: 'research', hasDropdown: 'research' },
+  { id: 'media', label: 'media', hasDropdown: 'media' },
 ];
 
 export const StickyNav = () => {
   const [activeSection, setActiveSection] = useState<string | null>(null);
-  const [isDropdownOpen, setIsDropdownOpen] = useState(false);
+  const [openDropdown, setOpenDropdown] = useState<string | null>(null);
   const dropdownRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
@@ -40,7 +41,7 @@ export const StickyNav = () => {
 
     const handleClickOutside = (event: MouseEvent) => {
       if (dropdownRef.current && !dropdownRef.current.contains(event.target as Node)) {
-        setIsDropdownOpen(false);
+        setOpenDropdown(null);
       }
     };
 
@@ -54,7 +55,6 @@ export const StickyNav = () => {
   }, []);
 
   const scrollToSection = (id: string) => {
-    // Immediately highlight the clicked section
     setActiveSection(id);
 
     const element = document.getElementById(id);
@@ -68,13 +68,14 @@ export const StickyNav = () => {
     }
   };
 
-  const handleCategoryClick = (categoryId: string) => {
-    setIsDropdownOpen(false);
+  const handleResearchClick = (categoryId: string) => {
+    setOpenDropdown(null);
 
-    // First close any open section
+    // Close ALL sections (both research and media)
     window.dispatchEvent(new CustomEvent('closeResearchSections'));
+    window.dispatchEvent(new CustomEvent('closeMediaSections'));
 
-    // Wait for close animation, then open new section and scroll
+    // Wait for close animations, then open and scroll
     setTimeout(() => {
       window.dispatchEvent(new CustomEvent('openResearchCategory', { detail: categoryId }));
 
@@ -84,19 +85,44 @@ export const StickyNav = () => {
           element.scrollIntoView({ behavior: 'smooth', block: 'start' });
         }
       }, 50);
-    }, 320); // Wait for close animation (300ms transition)
+    }, 320);
+  };
+
+  const handleMediaClick = (sectionId: string) => {
+    setOpenDropdown(null);
+
+    // Close ALL sections (both research and media)
+    window.dispatchEvent(new CustomEvent('closeResearchSections'));
+    window.dispatchEvent(new CustomEvent('closeMediaSections'));
+
+    // Wait for close animations, then open and scroll
+    setTimeout(() => {
+      window.dispatchEvent(new CustomEvent('openMediaSection', { detail: sectionId }));
+
+      setTimeout(() => {
+        const element = document.getElementById(`media-${sectionId}`);
+        if (element) {
+          element.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+      }, 50);
+    }, 320);
+  };
+
+  const getMediaIcon = (id: string) => {
+    if (id === 'highlights') return Sparkles;
+    return Archive;
   };
 
   return (
     <nav className="fixed top-0 left-0 right-0 z-50">
       <div className="bg-orange-50/85 backdrop-blur-md shadow-sm border-b border-orange-200/50">
         <div className="max-w-4xl mx-auto px-4 py-3 flex items-center justify-center">
-          <div className="flex items-center gap-2 sm:gap-3">
+          <div className="flex items-center gap-2 sm:gap-3" ref={dropdownRef}>
             {navItems.map((item) => (
               item.hasDropdown ? (
-                <div key={item.id} className="relative" ref={dropdownRef}>
+                <div key={item.id} className="relative">
                   <button
-                    onClick={() => setIsDropdownOpen(!isDropdownOpen)}
+                    onClick={() => setOpenDropdown(openDropdown === item.hasDropdown ? null : item.hasDropdown)}
                     className={`px-3 py-1.5 rounded-full text-sm font-medium transition-all flex items-center gap-1 ${
                       activeSection === item.id
                         ? 'bg-gradient-to-r from-pink-500 to-orange-500 text-white shadow-sm'
@@ -104,35 +130,66 @@ export const StickyNav = () => {
                     }`}
                   >
                     {item.label}
-                    <ChevronDown className={`w-3.5 h-3.5 transition-transform ${isDropdownOpen ? 'rotate-180' : ''}`} />
+                    <ChevronDown className={`w-3.5 h-3.5 transition-transform ${openDropdown === item.hasDropdown ? 'rotate-180' : ''}`} />
                   </button>
 
-                  {/* Dropdown */}
-                  <div
-                    className={`absolute top-full mt-2 transition-all duration-200 right-0 sm:right-0 ${
-                      isDropdownOpen
-                        ? 'opacity-100 translate-y-0'
-                        : 'opacity-0 -translate-y-2 pointer-events-none'
-                    }`}
-                  >
-                    <div className="bg-white/95 backdrop-blur-md rounded-xl shadow-lg border border-orange-100 p-2 w-48">
-                      <div className="flex flex-col gap-1">
-                        {researchSections.map((section) => {
-                          const Icon = section.icon;
-                          return (
-                            <button
-                              key={section.id}
-                              onClick={() => handleCategoryClick(section.id)}
-                              className={`flex items-center gap-2 px-3 py-2 rounded-lg text-sm font-medium transition-all text-left hover:bg-gray-50 ${section.textColor}`}
-                            >
-                              <Icon className="w-4 h-4" />
-                              <span>{section.title}</span>
-                            </button>
-                          );
-                        })}
+                  {/* Research Dropdown */}
+                  {item.hasDropdown === 'research' && (
+                    <div
+                      className={`absolute top-full mt-2 transition-all duration-200 left-0 ${
+                        openDropdown === 'research'
+                          ? 'opacity-100 translate-y-0'
+                          : 'opacity-0 -translate-y-2 pointer-events-none'
+                      }`}
+                    >
+                      <div className="bg-white/95 backdrop-blur-md rounded-xl shadow-lg border border-orange-100 p-2 w-48">
+                        <div className="flex flex-col gap-1">
+                          {researchSections.map((section) => {
+                            const Icon = section.icon;
+                            return (
+                              <button
+                                key={section.id}
+                                onClick={() => handleResearchClick(section.id)}
+                                className={`flex items-center gap-2 px-3 py-2 rounded-lg text-sm font-medium transition-all text-left hover:bg-gray-50 ${section.textColor}`}
+                              >
+                                <Icon className="w-4 h-4" />
+                                <span>{section.title}</span>
+                              </button>
+                            );
+                          })}
+                        </div>
                       </div>
                     </div>
-                  </div>
+                  )}
+
+                  {/* Media Dropdown */}
+                  {item.hasDropdown === 'media' && (
+                    <div
+                      className={`absolute top-full mt-2 transition-all duration-200 right-0 ${
+                        openDropdown === 'media'
+                          ? 'opacity-100 translate-y-0'
+                          : 'opacity-0 -translate-y-2 pointer-events-none'
+                      }`}
+                    >
+                      <div className="bg-white/95 backdrop-blur-md rounded-xl shadow-lg border border-orange-100 p-2 w-48">
+                        <div className="flex flex-col gap-1">
+                          {mediaSections.map((section) => {
+                            const Icon = getMediaIcon(section.id);
+                            return (
+                              <button
+                                key={section.id}
+                                onClick={() => handleMediaClick(section.id)}
+                                className="flex items-center gap-2 px-3 py-2 rounded-lg text-sm font-medium transition-all text-left hover:bg-gray-50 text-pink-500"
+                              >
+                                <Icon className="w-4 h-4" />
+                                <span>{section.title}</span>
+                              </button>
+                            );
+                          })}
+                        </div>
+                      </div>
+                    </div>
+                  )}
                 </div>
               ) : (
                 <button
