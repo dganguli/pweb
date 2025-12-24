@@ -9,21 +9,12 @@ const navItems = [
 ];
 
 export const StickyNav = () => {
-  const [isVisible, setIsVisible] = useState(false);
   const [activeSection, setActiveSection] = useState<string | null>(null);
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
   const dropdownRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     const handleScroll = () => {
-      const shouldShow = window.scrollY > 400;
-      setIsVisible(shouldShow);
-
-      // Close dropdown when nav hides
-      if (!shouldShow) {
-        setIsDropdownOpen(false);
-      }
-
       const sections = navItems.map(item => ({
         id: item.id,
         element: document.getElementById(item.id),
@@ -97,13 +88,7 @@ export const StickyNav = () => {
   };
 
   return (
-    <nav
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        isVisible
-          ? 'translate-y-0 opacity-100'
-          : '-translate-y-full opacity-0 pointer-events-none'
-      }`}
-    >
+    <nav className="fixed top-0 left-0 right-0 z-50">
       <div className="bg-white/90 backdrop-blur-md shadow-md border-b border-orange-100">
         <div className="max-w-4xl mx-auto px-4 py-3 flex items-center justify-between">
           <button

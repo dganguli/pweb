@@ -7,7 +7,7 @@ import { StickyNav } from './components/Navigation/StickyNav';
 
 const PersonalWebsite = () => {
   return (
-    <div className="min-h-screen bg-orange-50">
+    <div className="min-h-screen bg-orange-50 pt-14">
       <StickyNav />
       <Header />
       <section id="about">
