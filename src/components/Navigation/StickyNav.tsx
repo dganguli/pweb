@@ -116,13 +116,13 @@ export const StickyNav = () => {
 
                   {/* Dropdown */}
                   <div
-                    className={`absolute top-full right-0 mt-2 transition-all duration-200 ${
+                    className={`absolute top-full mt-2 transition-all duration-200 right-0 sm:right-0 ${
                       isDropdownOpen
                         ? 'opacity-100 translate-y-0'
                         : 'opacity-0 -translate-y-2 pointer-events-none'
                     }`}
                   >
-                    <div className="bg-white/95 backdrop-blur-md rounded-xl shadow-lg border border-orange-100 p-2 min-w-max">
+                    <div className="bg-white/95 backdrop-blur-md rounded-xl shadow-lg border border-orange-100 p-2 w-48">
                       <div className="flex flex-col gap-1">
                         {researchSections.map((section) => {
                           const Icon = section.icon;

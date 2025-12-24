@@ -1,17 +1,7 @@
-import { getRecentPublications, getPublicationById } from '../../data/researchContent';
-import { Bot, Ruler, ScrollText, Brain, Wrench, Hammer, Landmark, ChevronDown, ChevronUp, Youtube, Newspaper } from 'lucide-react';
-
-// Shared color config for category styling
-const categoryColors = {
-  alignment: { iconColor: 'text-pink-500', linkColor: 'text-pink-500 hover:text-pink-600' },
-  evals: { iconColor: 'text-orange-500', linkColor: 'text-orange-500 hover:text-orange-600' },
-  labor: { iconColor: 'text-red-500', linkColor: 'text-red-500 hover:text-red-600' },
-  democracy: { iconColor: 'text-amber-600', linkColor: 'text-amber-600 hover:text-amber-700' },
-  policy: { iconColor: 'text-yellow-500', linkColor: 'text-yellow-500 hover:text-yellow-600' },
-  neuroscience: { iconColor: 'text-fuchsia-500', linkColor: 'text-fuchsia-500 hover:text-fuchsia-600' },
-  software: { iconColor: 'text-purple-500', linkColor: 'text-purple-500 hover:text-purple-600' },
-} as const;
 import { useState } from 'react';
+import { getRecentPublications, getPublicationById } from '../../data/researchContent';
+import { ChevronDown, ChevronUp, Youtube, Newspaper } from 'lucide-react';
+import { getCategoryStyle, extractDate } from '../../lib/categoryStyles';
 
 export const About = () => {
   const recentPublications = getRecentPublications(3);
@@ -98,49 +88,24 @@ export const About = () => {
             <h4 className="text-sm font-medium text-gray-500 mb-3">recent work</h4>
             <ul className="text-gray-600 text-sm leading-relaxed">
               {recentPublications.map((pub) => {
-              // Map category to icon and color (matching research section colors)
-              const getCategoryStyle = (category: string) => {
-                const colors = categoryColors[category as keyof typeof categoryColors] || categoryColors.alignment;
-                const icons: Record<string, JSX.Element> = {
-                  alignment: <Bot className={`w-5 h-5 ${colors.iconColor} mr-2 flex-shrink-0`} />,
-                  evals: <Ruler className={`w-5 h-5 ${colors.iconColor} mr-2 flex-shrink-0`} />,
-                  labor: <Hammer className={`w-5 h-5 ${colors.iconColor} mr-2 flex-shrink-0`} />,
-                  democracy: <Landmark className={`w-5 h-5 ${colors.iconColor} mr-2 flex-shrink-0`} />,
-                  policy: <ScrollText className={`w-5 h-5 ${colors.iconColor} mr-2 flex-shrink-0`} />,
-                  neuroscience: <Brain className={`w-5 h-5 ${colors.iconColor} mr-2 flex-shrink-0`} />,
-                  software: <Wrench className={`w-5 h-5 ${colors.iconColor} mr-2 flex-shrink-0`} />,
-                };
-                return {
-                  icon: icons[category] || icons.alignment,
-                  linkColor: colors.linkColor
-                };
-              };
-              
-              // Extract date from details (format: "Venue, Month Year")
-              const extractDate = (details: string) => {
-                const parts = details.split(', ');
-                return parts.length > 1 ? parts[1] : details;
-              };
-              
-              const categoryStyle = getCategoryStyle(pub.category);
-              
-              return (
-                <li key={pub.id} className="mb-1 flex items-start">
-                  {categoryStyle.icon}
-                  <div>
-                    <a 
-                      href={pub.link} 
-                      target="_blank" 
-                      rel="noopener noreferrer"
-                      className={`${categoryStyle.linkColor} transition-colors`}
-                    >
-                      {pub.title}
-                    </a>
-                    <span className="text-gray-500 ml-1">({extractDate(pub.details)})</span>
-                  </div>
-                </li>
-              );
-            })}
+                const { Icon, iconColor, linkColor } = getCategoryStyle(pub.category);
+                return (
+                  <li key={pub.id} className="mb-1 flex items-start">
+                    <Icon className={`w-5 h-5 ${iconColor} mr-2 flex-shrink-0`} />
+                    <div>
+                      <a
+                        href={pub.link}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className={`${linkColor} transition-colors`}
+                      >
+                        {pub.title}
+                      </a>
+                      <span className="text-gray-500 ml-1">({extractDate(pub.details)})</span>
+                    </div>
+                  </li>
+                );
+              })}
             </ul>
           </div>
         )}
@@ -150,49 +115,24 @@ export const About = () => {
             <h4 className="text-sm font-medium text-gray-500 mb-3">favorites</h4>
             <ul className="text-gray-600 text-sm leading-relaxed">
               {favoritePublications.map((pub) => {
-              // Map category to icon and color (matching research section colors)
-              const getCategoryStyle = (category: string) => {
-                const colors = categoryColors[category as keyof typeof categoryColors] || categoryColors.alignment;
-                const icons: Record<string, JSX.Element> = {
-                  alignment: <Bot className={`w-5 h-5 ${colors.iconColor} mr-2 flex-shrink-0`} />,
-                  evals: <Ruler className={`w-5 h-5 ${colors.iconColor} mr-2 flex-shrink-0`} />,
-                  labor: <Hammer className={`w-5 h-5 ${colors.iconColor} mr-2 flex-shrink-0`} />,
-                  democracy: <Landmark className={`w-5 h-5 ${colors.iconColor} mr-2 flex-shrink-0`} />,
-                  policy: <ScrollText className={`w-5 h-5 ${colors.iconColor} mr-2 flex-shrink-0`} />,
-                  neuroscience: <Brain className={`w-5 h-5 ${colors.iconColor} mr-2 flex-shrink-0`} />,
-                  software: <Wrench className={`w-5 h-5 ${colors.iconColor} mr-2 flex-shrink-0`} />,
-                };
-                return {
-                  icon: icons[category] || icons.alignment,
-                  linkColor: colors.linkColor
-                };
-              };
-              
-              // Extract date from details (format: "Venue, Month Year")
-              const extractDate = (details: string) => {
-                const parts = details.split(', ');
-                return parts.length > 1 ? parts[1] : details;
-              };
-              
-              const categoryStyle = getCategoryStyle(pub.category);
-              
-              return (
-                <li key={pub.id} className="mb-1 flex items-start">
-                  {categoryStyle.icon}
-                  <div>
-                    <a 
-                      href={pub.link} 
-                      target="_blank" 
-                      rel="noopener noreferrer"
-                      className={`${categoryStyle.linkColor} transition-colors`}
-                    >
-                      {pub.title}
-                    </a>
-                    <span className="text-gray-500 ml-1">({extractDate(pub.details)})</span>
-                  </div>
-                </li>
-              );
-            })}
+                const { Icon, iconColor, linkColor } = getCategoryStyle(pub.category);
+                return (
+                  <li key={pub.id} className="mb-1 flex items-start">
+                    <Icon className={`w-5 h-5 ${iconColor} mr-2 flex-shrink-0`} />
+                    <div>
+                      <a
+                        href={pub.link}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className={`${linkColor} transition-colors`}
+                      >
+                        {pub.title}
+                      </a>
+                      <span className="text-gray-500 ml-1">({extractDate(pub.details)})</span>
+                    </div>
+                  </li>
+                );
+              })}
             </ul>
           </div>
         )}
