@@ -1,7 +1,16 @@
 import { Card, CardContent } from '@/components/ui/card';
-import { Newspaper, ChevronDown } from 'lucide-react';
+import { Archive, ChevronDown } from 'lucide-react';
 import { getAllMediaItems } from '../../data/researchContent';
 import { useIconForPaper } from '../../hooks/useIconForPaper';
+
+// Titles of highlighted items to filter out
+const highlightedTitles = [
+  "It's their job to keep AI from destroying everything",
+  "What if We Could All Control AI?",
+  "The 3 Most Important AI Innovations of 2023",
+  "What if Dario Amodei is Right About AI?",
+  "The Unpredictable Abilities Emerging From Large AI Models",
+];
 
 interface MediaSectionProps {
   isOpen: boolean;
@@ -10,7 +19,9 @@ interface MediaSectionProps {
 
 export const MediaSection = ({ isOpen, onToggle }: MediaSectionProps) => {
   const getIconForPaper = useIconForPaper();
-  const mediaItems = getAllMediaItems();
+  const allMediaItems = getAllMediaItems();
+  // Filter out highlighted items
+  const mediaItems = allMediaItems.filter(item => !highlightedTitles.includes(item.title));
 
   return (
     <Card className="bg-white/80 backdrop-blur border-none shadow-lg hover:shadow-xl transition-shadow rounded-xl overflow-hidden">
@@ -20,9 +31,9 @@ export const MediaSection = ({ isOpen, onToggle }: MediaSectionProps) => {
         className="w-full text-left"
       >
         <div className={`w-full px-6 py-4 transition-colors flex items-center justify-between ${isOpen ? 'bg-gray-50' : ''}`}>
-          <div className="flex items-center gap-2 text-2xl">
-            <Newspaper className="h-6 w-6 text-pink-500" />
-            <span className="text-pink-500">selected press</span>
+          <div className="flex items-center gap-2 text-xl">
+            <Archive className="h-5 w-5 text-pink-500" />
+            <span className="text-pink-500">all coverage ({mediaItems.length})</span>
           </div>
           <ChevronDown className={`w-5 h-5 transition-transform text-pink-500 ${isOpen ? 'transform rotate-180' : ''}`} />
         </div>
