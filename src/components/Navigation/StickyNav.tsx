@@ -90,15 +90,8 @@ export const StickyNav = () => {
   return (
     <nav className="fixed top-0 left-0 right-0 z-50">
       <div className="bg-white/90 backdrop-blur-md shadow-md border-b border-orange-100">
-        <div className="max-w-4xl mx-auto px-4 py-3 flex items-center justify-between">
-          <button
-            onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
-            className="text-base sm:text-lg font-bold bg-gradient-to-r from-pink-500 to-orange-500 text-transparent bg-clip-text hover:opacity-80 transition-opacity whitespace-nowrap"
-          >
-            deep ganguli
-          </button>
-
-          <div className="flex items-center gap-1 sm:gap-2">
+        <div className="max-w-4xl mx-auto px-4 py-3 flex items-center justify-center">
+          <div className="flex items-center gap-2 sm:gap-3">
             {navItems.map((item) => (
               item.hasDropdown ? (
                 <div key={item.id} className="relative" ref={dropdownRef}>
