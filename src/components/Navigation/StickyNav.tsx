@@ -84,14 +84,18 @@ export const StickyNav = () => {
       return;
     }
 
+    // Check if anything is currently open
+    const hasOpenSections = getOpenResearchSection() || getOpenMediaSection();
+
     // Close ALL sections (both research and media)
     window.dispatchEvent(new CustomEvent('closeResearchSections'));
     window.dispatchEvent(new CustomEvent('closeMediaSections'));
 
-    // Wait for close animations, then open (container handles scrolling)
+    // Only wait for close animation if something was open
+    const delay = hasOpenSections ? 320 : 0;
     setTimeout(() => {
       window.dispatchEvent(new CustomEvent('openResearchCategory', { detail: categoryId }));
-    }, 320);
+    }, delay);
   };
 
   const handleMediaClick = (sectionId: string) => {
@@ -106,14 +110,18 @@ export const StickyNav = () => {
       return;
     }
 
+    // Check if anything is currently open
+    const hasOpenSections = getOpenResearchSection() || getOpenMediaSection();
+
     // Close ALL sections (both research and media)
     window.dispatchEvent(new CustomEvent('closeResearchSections'));
     window.dispatchEvent(new CustomEvent('closeMediaSections'));
 
-    // Wait for close animations, then open (container handles scrolling)
+    // Only wait for close animation if something was open
+    const delay = hasOpenSections ? 320 : 0;
     setTimeout(() => {
       window.dispatchEvent(new CustomEvent('openMediaSection', { detail: sectionId }));
-    }, 320);
+    }, delay);
   };
 
 
