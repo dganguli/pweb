@@ -1,7 +1,8 @@
 import { useState, useEffect, useRef } from 'react';
 import { ChevronDown } from 'lucide-react';
 import { researchSections } from '../../data/researchContent';
-import { mediaSections } from '../Media/MediaContainer';
+import { mediaSections, getOpenMediaSection } from '../Media/MediaContainer';
+import { getOpenResearchSection } from '../Research/ResearchContainer';
 
 const navItems = [
   { id: 'about', label: 'about' },
@@ -10,12 +11,12 @@ const navItems = [
 ];
 
 export const StickyNav = () => {
-  const [activeSection, setActiveSection] = useState<string | null>(null);
+  const [activeSection, setActiveSection] = useState<string>('about');
   const [openDropdown, setOpenDropdown] = useState<string | null>(null);
   const dropdownRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
-    const handleScroll = () => {
+    const updateActiveSection = () => {
       const sections = navItems.map(item => ({
         id: item.id,
         element: document.getElementById(item.id),
@@ -45,11 +46,14 @@ export const StickyNav = () => {
       }
     };
 
-    window.addEventListener('scroll', handleScroll, { passive: true });
+    // Check scroll position on mount (browser may restore scroll position on refresh)
+    updateActiveSection();
+
+    window.addEventListener('scroll', updateActiveSection, { passive: true });
     document.addEventListener('mousedown', handleClickOutside);
 
     return () => {
-      window.removeEventListener('scroll', handleScroll);
+      window.removeEventListener('scroll', updateActiveSection);
       document.removeEventListener('mousedown', handleClickOutside);
     };
   }, []);
@@ -71,40 +75,44 @@ export const StickyNav = () => {
   const handleResearchClick = (categoryId: string) => {
     setOpenDropdown(null);
 
+    // If this section is already open, just scroll to it
+    if (getOpenResearchSection() === categoryId) {
+      const element = document.getElementById(`research-${categoryId}`);
+      if (element) {
+        element.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }
+      return;
+    }
+
     // Close ALL sections (both research and media)
     window.dispatchEvent(new CustomEvent('closeResearchSections'));
     window.dispatchEvent(new CustomEvent('closeMediaSections'));
 
-    // Wait for close animations, then open and scroll
+    // Wait for close animations, then open (container handles scrolling)
     setTimeout(() => {
       window.dispatchEvent(new CustomEvent('openResearchCategory', { detail: categoryId }));
-
-      setTimeout(() => {
-        const element = document.getElementById(`research-${categoryId}`);
-        if (element) {
-          element.scrollIntoView({ behavior: 'smooth', block: 'start' });
-        }
-      }, 50);
     }, 320);
   };
 
   const handleMediaClick = (sectionId: string) => {
     setOpenDropdown(null);
 
+    // If this section is already open, just scroll to it
+    if (getOpenMediaSection() === sectionId) {
+      const element = document.getElementById(`media-${sectionId}`);
+      if (element) {
+        element.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }
+      return;
+    }
+
     // Close ALL sections (both research and media)
     window.dispatchEvent(new CustomEvent('closeResearchSections'));
     window.dispatchEvent(new CustomEvent('closeMediaSections'));
 
-    // Wait for close animations, then open and scroll
+    // Wait for close animations, then open (container handles scrolling)
     setTimeout(() => {
       window.dispatchEvent(new CustomEvent('openMediaSection', { detail: sectionId }));
-
-      setTimeout(() => {
-        const element = document.getElementById(`media-${sectionId}`);
-        if (element) {
-          element.scrollIntoView({ behavior: 'smooth', block: 'start' });
-        }
-      }, 50);
     }, 320);
   };
 

@@ -483,7 +483,7 @@ export const researchSections: ResearchSection[] = [
     }))
   },
   {
-    id: 'policy',
+    id: 'society',
     title: "ai and society",
     icon: ScrollText,
     ...sectionColors.yellow,
@@ -518,8 +518,8 @@ export const researchSections: ResearchSection[] = [
     }))
   },
   {
-    id: 'software',
-    title: "research engineering",
+    id: 'engineering',
+    title: "engineering",
     icon: Wrench,
     ...sectionColors.purple,
     papers: publicationsWithMedia.filter(p => p.category === 'software').map(p => ({

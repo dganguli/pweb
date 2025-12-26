@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import { Sparkles, Archive } from 'lucide-react';
 import { MediaSection } from './MediaSection';
 import { MediaHighlights } from './MediaHighlights';
@@ -21,12 +21,24 @@ export const mediaSections = [
   },
 ];
 
+// Track open section at module level so nav can check it
+let currentOpenMediaSection: string | null = null;
+export const getOpenMediaSection = () => currentOpenMediaSection;
+
 export const MediaContainer = () => {
   const [openSection, setOpenSection] = useState<string | null>(null);
+  const prevOpenSection = useRef<string | null>(null);
+
+  // Keep module-level variable in sync
+  useEffect(() => {
+    currentOpenMediaSection = openSection;
+  }, [openSection]);
 
   useEffect(() => {
     // Listen for nav dropdown clicks
     const handleMediaOpen = (event: CustomEvent<string>) => {
+      // Coming from nav - need to wait for expand animation
+      prevOpenSection.current = 'from-nav';
       setOpenSection(event.detail);
     };
 
@@ -42,6 +54,34 @@ export const MediaContainer = () => {
     };
   }, []);
 
+  // Scroll to section when it opens
+  useEffect(() => {
+    if (openSection) {
+      // If switching from another section, wait for collapse animation (300ms)
+      const delay = prevOpenSection.current ? 350 : 50;
+      setTimeout(() => {
+        const element = document.getElementById(`media-${openSection}`);
+        if (element) {
+          element.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+      }, delay);
+    }
+    prevOpenSection.current = openSection;
+  }, [openSection]);
+
+  const handleToggle = (sectionId: string) => {
+    const isClosing = openSection === sectionId;
+    if (isClosing) {
+      setOpenSection(null);
+    } else {
+      // Opening a section - close any open research sections first
+      window.dispatchEvent(new CustomEvent('closeResearchSections'));
+      // Mark that we're switching from another container (for scroll timing)
+      prevOpenSection.current = 'cross-container';
+      setOpenSection(sectionId);
+    }
+  };
+
   const highlightsConfig = mediaSections[0];
   const allCoverageConfig = mediaSections[1];
 
@@ -52,7 +92,7 @@ export const MediaContainer = () => {
         <div id="media-highlights" className="scroll-mt-20">
           <MediaHighlights
             isOpen={openSection === 'highlights'}
-            onToggle={() => setOpenSection(openSection === 'highlights' ? null : 'highlights')}
+            onToggle={() => handleToggle('highlights')}
             gradient={highlightsConfig.gradient}
             hoverGradient={highlightsConfig.hoverGradient}
             textColor={highlightsConfig.textColor}
@@ -61,7 +101,7 @@ export const MediaContainer = () => {
         <div id="media-all-coverage" className="scroll-mt-20">
           <MediaSection
             isOpen={openSection === 'all-coverage'}
-            onToggle={() => setOpenSection(openSection === 'all-coverage' ? null : 'all-coverage')}
+            onToggle={() => handleToggle('all-coverage')}
             gradient={allCoverageConfig.gradient}
             hoverGradient={allCoverageConfig.hoverGradient}
             textColor={allCoverageConfig.textColor}
