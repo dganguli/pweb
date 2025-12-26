@@ -74,10 +74,14 @@ export const MediaContainer = () => {
     if (isClosing) {
       setOpenSection(null);
     } else {
-      // Opening a section - close any open research sections first
+      // Close any open research sections
       window.dispatchEvent(new CustomEvent('closeResearchSections'));
-      // Mark that we're switching from another container (for scroll timing)
-      prevOpenSection.current = 'cross-container';
+      // Only mark cross-container if research actually has something open
+      // (imported getOpenResearchSection check happens via the event)
+      // Don't override prevOpenSection if switching within this container
+      if (!openSection) {
+        prevOpenSection.current = 'cross-container';
+      }
       setOpenSection(sectionId);
     }
   };
