@@ -4,6 +4,24 @@ import { sectionColors } from '../lib/sectionColors';
 
 // Enhanced publication data with embedded media coverage
 export const publicationsWithMedia: PublicationWithMedia[] = [
+  // AI and Society
+  {
+    id: '81k-interviews',
+    title: "What 81,000 People Want from AI",
+    details: "Anthropic Features, Mar 2026",
+    link: "https://www.anthropic.com/features/81k-interviews",
+    role: "last author",
+    category: 'policy',
+    mediaCoverage: [
+      {
+        title: "AI hallucinations haunt users more than job losses",
+        outlet: "Financial Times",
+        date: "Mar 2026",
+        link: "https://www.ft.com/content/e074d3a9-7fd8-447d-ac0a-e0de756ac5c5"
+      }
+    ]
+  },
+
   // AI Alignment
   {
     id: 'claude-support-advice',
@@ -38,6 +56,12 @@ export const publicationsWithMedia: PublicationWithMedia[] = [
     role: "last author",
     category: 'democracy',
     mediaCoverage: [
+      {
+        title: "Does A.I. Need a Constitution?",
+        outlet: "The New Yorker",
+        date: "Mar 2026",
+        link: "https://www.newyorker.com/magazine/2026/03/30/does-ai-need-a-constitution"
+      },
       {
         title: "The 3 Most Important AI Innovations of 2023",
         outlet: "Time Magazine",
@@ -112,6 +136,15 @@ export const publicationsWithMedia: PublicationWithMedia[] = [
   },
 
   // AI Evaluation
+  {
+    id: 'measuring-agent-autonomy',
+    title: "Measuring AI Agent Autonomy in Practice",
+    details: "Anthropic Research Blog, Feb 2026",
+    link: "https://www.anthropic.com/research/measuring-agent-autonomy",
+    role: "last author",
+    category: 'evals',
+    mediaCoverage: []
+  },
   {
     id: 'anthropic-interviewer',
     title: "Introducing Anthropic Interviewer: What 1,250 professionals told us about working with AI",
