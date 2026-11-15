@@ -22,7 +22,33 @@ export const publicationsWithMedia: PublicationWithMedia[] = [
     ]
   },
 
+  {
+    id: 'enabling-independent-research',
+    title: "Enabling Independent Research on How People Use Claude",
+    details: "Anthropic Research Blog, Aug 2026",
+    link: "https://www.anthropic.com/research/enabling-independent-research",
+    role: "last author",
+    category: 'policy',
+    mediaCoverage: []
+  },
+  {
+    id: 'claude-personal-guidance',
+    title: "How People Ask Claude for Personal Guidance",
+    details: "Anthropic Research Blog, Apr 2026",
+    link: "https://www.anthropic.com/research/claude-personal-guidance",
+    category: 'policy',
+    mediaCoverage: []
+  },
+
   // AI Alignment
+  {
+    id: 'claude-values-models-languages',
+    title: "Claude's Values Across Models and Languages",
+    details: "Anthropic Research Blog, Jul 2026",
+    link: "https://www.anthropic.com/research/claude-values-models-languages",
+    category: 'alignment',
+    mediaCoverage: []
+  },
   {
     id: 'claude-support-advice',
     title: "How People Use Claude for Support, Advice, and Companionship",
@@ -188,6 +214,14 @@ export const publicationsWithMedia: PublicationWithMedia[] = [
         link: "https://www.axios.com/2025/12/13/ai-anthropic-chatbot-remote-work-jobs"
       }
     ]
+  },
+  {
+    id: 'university-students-claude',
+    title: "Anthropic Education Report: How University Students Use Claude",
+    details: "Anthropic Research Blog, Apr 2025",
+    link: "https://www.anthropic.com/research/anthropic-education-report-how-university-students-use-claude",
+    category: 'policy',
+    mediaCoverage: []
   },
   {
     id: 'economic-tasks-ai',
