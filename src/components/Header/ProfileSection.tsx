@@ -1,0 +1,19 @@
+export const ProfileSection = () => (
+  <div className="flex flex-col items-center gap-8">
+    <div className="relative w-48">
+      <div className="absolute inset-0 bg-violet-500 rounded-full scale-105 opacity-75 blur-sm"></div>
+      <img 
+        src="dg2.png"
+        alt="Deep Ganguli"
+        className="rounded-full shadow-lg w-48 h-48 object-cover relative z-10 transition-all duration-300"
+      />
+    </div>
+    
+    <div className="text-center z-10">
+      <h1 className="text-5xl font-black mb-4 text-white drop-shadow-lg">
+        deep ganguli
+      </h1>
+    </div>
+  </div>
+);
+
